@@ -1,0 +1,295 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500;600&display=swap');
+
+  .gk-block {
+    --gk-paper: #f4f0e8;
+    --gk-paper-light: #fbf8f2;
+    --gk-ink: #2d302f;
+    --gk-soft: #706f68;
+    --gk-line: #ddd5c8;
+    --gk-accent: #944939;
+    --gk-accent-dark: #78382d;
+    --gk-accent-soft: #eaded7;
+    --gk-white: #fffdf9;
+    --gk-shadow: 0 22px 60px rgba(55, 44, 34, .10);
+    width: 100%;
+    color: var(--gk-ink);
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .gk-block,
+  .gk-block *,
+  .gk-block *::before,
+  .gk-block *::after {
+    box-sizing: border-box;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block h4,
+  .gk-block p,
+  .gk-block ul {
+    margin-top: 0;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block h4 {
+    color: var(--gk-ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: .005em;
+  }
+
+  .gk-block a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .gk-block p+p {
+    margin-top: 16px;
+  }
+
+  .gk-block ul {
+    padding-left: 1.2rem;
+  }
+
+  .gk-block li+li {
+    margin-top: 7px;
+  }
+
+  .gk-block .gk-wrap {
+    width: min(1160px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .gk-block .gk-eyebrow {
+    display: inline-block;
+    color: var(--gk-accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+  }
+
+  .gk-block .gk-lead {
+    color: var(--gk-soft);
+    font-size: 19px;
+  }
+
+  .gk-block .gk-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 24px;
+    border: 1px solid var(--gk-ink);
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+
+  .gk-block .gk-button:hover {
+    background: var(--gk-accent);
+    border-color: var(--gk-accent);
+    color: var(--gk-paper-light);
+  }
+
+  .gk-block .gk-button.gk-secondary {
+    background: transparent;
+    color: var(--gk-ink);
+  }
+
+  .gk-block .gk-button.gk-secondary:hover {
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+  }
+
+  .gk-block .gk-hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+
+  .gk-block .gk-photo {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gk-line);
+    background: linear-gradient(145deg, rgba(148, 73, 57, .08), rgba(255, 255, 255, .2)), radial-gradient(circle at 68% 24%, rgba(148, 73, 57, .20), transparent 28%), linear-gradient(155deg, #ddd2c3, #c8b9a6);
+    box-shadow: var(--gk-shadow);
+  }
+
+  .gk-block .gk-photo.gk-horizontal {
+    aspect-ratio: 4/3;
+  }
+
+  .gk-block .gk-photo.gk-vertical {
+    aspect-ratio: 4/5;
+  }
+
+  .gk-block .gk-photo::before {
+    content: "";
+    position: absolute;
+    inset: 26px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .gk-block .gk-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .gk-block .gk-photo-label {
+    position: absolute;
+    left: 28px;
+    bottom: 24px;
+    z-index: 2;
+    padding: 9px 13px;
+    background: rgba(244, 240, 232, .9);
+    color: var(--gk-soft);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 15px;
+    font-style: italic;
+  }
+
+  .gk-block[id] {
+    scroll-margin-top: 92px;
+  }
+
+  @media (max-width:980px) {
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 40px), 760px);
+    }
+
+    .gk-block .gk-photo.gk-horizontal {
+      aspect-ratio: 16/10;
+    }
+  }
+
+  @media (max-width:620px) {
+    .gk-block {
+      font-size: 16px;
+    }
+
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 32px), 560px);
+    }
+
+    .gk-block .gk-button {
+      width: 100%;
+    }
+  }
+
+  .gk-o-mnie {
+    padding: 104px 0;
+    background: var(--gk-paper-light);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-o-mnie .gk-about-grid {
+    display: grid;
+    grid-template-columns: minmax(300px, .8fr) minmax(0, 1.2fr);
+    gap: 76px;
+    align-items: start;
+  }
+
+  .gk-o-mnie .gk-about-copy h2 {
+    margin: 12px 0 24px;
+    font-size: clamp(38px, 4.8vw, 56px);
+  }
+
+  .gk-o-mnie .gk-about-copy p {
+    color: var(--gk-soft);
+  }
+
+  .gk-o-mnie .gk-about-copy p:first-of-type {
+    color: var(--gk-ink);
+    font-size: 19px;
+  }
+
+  .gk-o-mnie .gk-membership {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .gk-o-mnie .gk-membership span {
+    padding: 7px 13px;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-paper);
+    color: var(--gk-soft);
+    font-size: 12px;
+    letter-spacing: .05em;
+  }
+
+  @media(max-width:980px) {
+    .gk-o-mnie .gk-about-grid {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+
+    .gk-o-mnie .gk-photo {
+      max-width: 480px;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-o-mnie {
+      padding: 78px 0;
+    }
+
+    .gk-o-mnie .gk-about-grid {
+      gap: 38px;
+    }
+  }
+</style>
+<section class="gk-block gk-o-mnie" id="o-mnie">
+  <div class="gk-wrap gk-about-grid">
+    <div class="gk-photo gk-vertical">
+      <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-44.jpg"
+        alt="Gabriela Kos, tłumaczka przysięgła języka francuskiego" width="1200" height="900">
+      <span aria-hidden="true" class="gk-maple-mark">🍁</span>
+    </div>
+    <div class="gk-about-copy">
+      <span class="gk-eyebrow">O mnie</span>
+      <h2>Doświadczenie językowe po obu stronach Atlantyku</h2>
+      <p>Jestem tłumaczką przysięgłą języka francuskiego w Polsce (TP/96/21) oraz w Kanadzie (OTTIAQ N°: 35299).</p>
+      <p>Ukończyłam studia magisterskie na kierunku filologia romańska, specjalizacja przekładoznawcza, na Uniwersytecie
+        Jagiellońskim w Krakowie.</p>
+      <p>Jestem również absolwentką Podyplomowych Studiów dla Tłumaczy Ustnych na Katedrze Przekładoznawstwa
+        Uniwersytetu Jagiellońskiego oraz Interdyscyplinarnego Podyplomowego Studium Kształcenia Tłumaczy (IPSKT) na
+        Uniwersytecie Warszawskim.</p>
+      <p>Przez wiele lat mieszkałam w krajach frankofońskich: w Szwajcarii, Belgii i Kanadzie (Québec).</p>
+      <p>Stale dokształcam się i poszerzam swoje kompetencje, uczestnicząc w kursach organizowanych m.in. przez TEPIS,
+        OTTIAQ oraz Francusko-Polską Izbę Gospodarczą.</p>
+      <p>Wykonuję tłumaczenia poświadczone, tzw. „przysięgłe”, z polskiego na francuski oraz z francuskiego na polski.
+        Ponadto oferuję tłumaczenia zwykłe, „nieprzysięgłe”, z angielskiego na francuski. Specjalizuję się w
+        tłumaczeniach z dziedziny prawa: tłumaczę wyroki sądowe, akty notarialne, dokumenty USC, umowy i dokumenty
+        imigracyjne. Wykonuję również tłumaczenia ustne.</p>
+      <p>Jestem członkinią TEPIS oraz OTTIAQ.</p>
+      <div aria-label="Członkostwa i kwalifikacje" class="gk-membership">
+        <span>TP/96/21</span>
+        <span>OTTIAQ N° 35299</span>
+        <span>TEPIS</span>
+        <span>Uniwersytet Jagielloński</span>
+        <span>Uniwersytet Warszawski</span>
+      </div>
+    </div>
+  </div>
+</section>
