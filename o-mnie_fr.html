@@ -220,12 +220,24 @@
     border-bottom: 1px solid var(--gk-line);
   }
 
+  .gk-o-mnie-page .gk-details.gk-light {
+    background: var(--gk-paper-light);
+  }
+
   .gk-o-mnie-page .gk-details-head {
     display: grid;
     grid-template-columns: .75fr 1.25fr;
     gap: 50px;
     align-items: start;
     margin-bottom: 50px;
+  }
+
+  .gk-o-mnie-page .gk-details-head:last-child {
+    margin-bottom: 0;
+  }
+
+  .gk-o-mnie-page .gk-details-head.gk-single {
+    grid-template-columns: 1fr;
   }
 
   .gk-o-mnie-page .gk-details-head h2 {
@@ -243,10 +255,20 @@
     gap: 24px;
   }
 
+  .gk-o-mnie-page .gk-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
   .gk-o-mnie-page .gk-detail-card {
     padding: 30px;
     border: 1px solid var(--gk-line);
     background: var(--gk-paper-light);
+  }
+
+  .gk-o-mnie-page .gk-light .gk-detail-card {
+    background: var(--gk-paper);
   }
 
   .gk-o-mnie-page .gk-detail-card h3 {
@@ -256,6 +278,25 @@
 
   .gk-o-mnie-page .gk-detail-card p,
   .gk-o-mnie-page .gk-detail-card li {
+    color: var(--gk-soft);
+    font-size: 15px;
+  }
+
+  .gk-o-mnie-page .gk-stat {
+    padding: 30px;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-paper-light);
+  }
+
+  .gk-o-mnie-page .gk-stat strong {
+    display: block;
+    margin-bottom: 7px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .gk-o-mnie-page .gk-stat span {
     color: var(--gk-soft);
     font-size: 15px;
   }
@@ -328,6 +369,10 @@
     .gk-o-mnie-page .gk-details-grid {
       grid-template-columns: 1fr;
     }
+
+    .gk-o-mnie-page .gk-stats-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 
@@ -339,80 +384,153 @@
           alt="Gabriela Kos, traductrice assermentée de français" width="1200" height="900">
       </div>
       <div class="gk-about-copy">
-        <span class="gk-eyebrow">À propos</span>
-        <h1 id="gk-about-title">Une expérience linguistique des deux côtés de l’Atlantique</h1>
-        <p class="gk-lead">Je suis traductrice assermentée de français en Pologne (TP/96/21) et traductrice agréée au
-          Canada (OTTIAQ N° 35299).</p>
-        <p>Je suis titulaire d’une maîtrise en philologie romane, spécialisation traduction, obtenue à l’Université
-          Jagellonne de Cracovie. J’ai également suivi les études postuniversitaires pour interprètes au Département
-          de traductologie de l’Université Jagellonne.</p>
-        <p>J’ai poursuivi ma formation dans le cadre du programme interdisciplinaire d’études postuniversitaires pour
-          traducteurs et interprètes (IPSKT) à l’Université de Varsovie. Ma formation couvre ainsi aussi bien la
-          traduction écrite que l’interprétation.</p>
-        <p>J’ai vécu de nombreuses années dans plusieurs pays francophones : en Suisse, en Belgique et au Canada, dans
-          la province de Québec. Le français est donc pour moi non seulement une langue de travail, mais aussi une
-          langue pratiquée dans différents contextes institutionnels et culturels.</p>
-        <p>Je développe continuellement mes compétences en participant notamment aux formations organisées par TEPIS,
-          l’OTTIAQ et la Chambre de commerce et d’industrie France-Pologne.</p>
-        <div aria-label="Affiliations et qualifications" class="gk-membership">
-          <span>TP/96/21</span>
-          <span>OTTIAQ N° 35299</span>
-          <span>TEPIS</span>
-          <span>Université Jagellonne</span>
-          <span>Université de Varsovie</span>
+        <span class="gk-eyebrow">Gabriela Kos</span>
+        <h1 id="gk-about-title">Traductrice assermentée de français</h1>
+        <p class="gk-lead">Je suis traductrice assermentée de français inscrite sur la liste du ministre de la Justice
+          (TP/96/21) et membre de l’organisation canadienne OTTIAQ (N° 35299). Je réalise des traductions assermentées
+          et spécialisées ainsi que des prestations d’interprétation pour les particuliers, les entreprises et les
+          institutions, en Pologne comme à l’étranger.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gk-details" aria-labelledby="gk-qualifications-title">
+    <div class="gk-wrap">
+      <div class="gk-details-head">
+        <div>
+          <span class="gk-eyebrow">Pologne et Canada</span>
+          <h2 id="gk-qualifications-title">Des qualifications reconnues en Pologne et au Canada</h2>
+        </div>
+        <div>
+          <p class="gk-lead">Je fais partie du petit nombre de traducteurs de français qui disposent de qualifications
+            professionnelles à la fois en Pologne et au Canada.</p>
+          <p>En qualité de traductrice assermentée de français et de membre de l’OTTIAQ, je réalise des traductions
+            acceptées par les institutions publiques, les administrations et les organisations établies au Canada, en
+            particulier dans la province de Québec.</p>
+          <p>J’accompagne les clients qui préparent des documents à des fins administratives, professionnelles,
+            éducatives et d’immigration. Ma connaissance des exigences en vigueur des deux côtés de l’Atlantique me
+            permet de les aider à préparer correctement les documents requis par les institutions canadiennes.</p>
+        </div>
+      </div>
+      <div class="gk-stats-grid" aria-label="Qualifications et expérience">
+        <div class="gk-stat">
+          <strong>TP/96/21</strong>
+          <span>Numéro d’inscription sur la liste des traducteurs assermentés</span>
+        </div>
+        <div class="gk-stat">
+          <strong>OTTIAQ 35299</strong>
+          <span>Qualifications professionnelles canadiennes</span>
+        </div>
+        <div class="gk-stat">
+          <strong>3 pays francophones</strong>
+          <span>Suisse, Belgique, Canada</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="gk-details" aria-labelledby="gk-experience-title">
+  <section class="gk-details gk-light" aria-labelledby="gk-education-title">
     <div class="gk-wrap">
       <div class="gk-details-head">
         <div>
-          <span class="gk-eyebrow">Compétences</span>
-          <h2 id="gk-experience-title">Formation, pratique et spécialisation</h2>
+          <span class="gk-eyebrow">Formation</span>
+          <h2 id="gk-education-title">Formation et préparation professionnelle</h2>
         </div>
         <div>
-          <p class="gk-lead">J’associe mes qualifications officielles en Pologne et au Canada à une expérience acquise
-            dans plusieurs pays francophones.</p>
-          <p>Je travaille principalement sur des documents juridiques, administratifs et d’immigration, pour lesquels
-            la précision linguistique et la connaissance de la finalité de la traduction sont essentielles.</p>
+          <p class="gk-lead">La langue française et la traduction sont ma spécialité depuis de nombreuses années.</p>
+          <p>Je suis diplômée en philologie romane, spécialisation traduction, de l’Université Jagellonne de Cracovie.
+            J’ai également développé mes compétences dans le cadre des études postuniversitaires pour interprètes à
+            l’Université Jagellonne et du programme interdisciplinaire d’études postuniversitaires pour traducteurs et
+            interprètes à l’Université de Varsovie.</p>
+          <p>Je participe régulièrement aux formations et aux cours organisés par TEPIS, l’OTTIAQ et la Chambre de
+            commerce et d’industrie France-Pologne. J’approfondis ainsi continuellement mes connaissances en droit, en
+            administration et en terminologie spécialisée francophone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gk-details" aria-labelledby="gk-francophone-title">
+    <div class="gk-wrap">
+      <div class="gk-details-head">
+        <div>
+          <span class="gk-eyebrow">Expérience</span>
+          <h2 id="gk-francophone-title">Le français appris et pratiqué au quotidien</h2>
+        </div>
+        <div>
+          <p class="gk-lead">J’ai vécu et travaillé pendant de nombreuses années dans des pays francophones&nbsp;: en
+            Suisse, en Belgique et au Canada, dans la province de Québec.</p>
+          <p>J’ai ainsi utilisé le français au quotidien dans son environnement naturel, tout en découvrant la culture,
+            les réalités administratives et les spécificités de la communication propres aux différents pays
+            francophones.</p>
+          <p>Cette expérience me permet de réaliser des traductions précises, naturelles et adaptées à leur
+            destinataire, que le document soit destiné à être utilisé en Pologne, en France ou au Canada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gk-details gk-light" aria-labelledby="gk-specializations-title">
+    <div class="gk-wrap">
+      <div class="gk-details-head gk-single">
+        <div>
+          <span class="gk-eyebrow">Spécialisations</span>
+          <h2 id="gk-specializations-title">Domaines de spécialisation</h2>
         </div>
       </div>
       <div class="gk-details-grid">
         <article class="gk-detail-card">
-          <h3>Qualifications en Pologne</h3>
-          <p>En qualité de traductrice assermentée inscrite sous le numéro TP/96/21, je réalise des traductions
-            certifiées du polonais vers le français et du français vers le polonais.</p>
+          <h3>Droit et administration</h3>
+          <p>Jugements, actes notariés, procurations, contrats et documents officiels et administratifs.</p>
         </article>
         <article class="gk-detail-card">
-          <h3>Qualifications au Canada</h3>
-          <p>En tant que membre de l’OTTIAQ, je réalise des traductions agréées destinées aux institutions canadiennes,
-            notamment des documents requis pour les démarches administratives et d’immigration.</p>
+          <h3>Documents d’état civil</h3>
+          <p>Actes de naissance, de mariage et de décès, ainsi que les documents requis par les administrations et les
+            institutions.</p>
         </article>
         <article class="gk-detail-card">
-          <h3>Combinaisons linguistiques</h3>
-          <p>Outre les traductions certifiées entre le polonais et le français, je propose des traductions non
-            certifiées de l’anglais vers le français ainsi que des services d’interprétation.</p>
+          <h3>Canada et Québec</h3>
+          <p>Documents d’immigration, d’études et professionnels exigés par les institutions canadiennes.</p>
         </article>
         <article class="gk-detail-card">
-          <h3>Principaux domaines</h3>
-          <p>Je traduis notamment des jugements, des actes notariés, des actes d’état civil, des contrats et des
-            documents d’immigration.</p>
+          <h3>Interprétation</h3>
+          <p>Assistance lors d’actes notariés, d’audiences, de réunions professionnelles et de démarches auprès des
+            administrations.</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="gk-details" aria-labelledby="gk-membership-title">
+    <div class="gk-wrap">
+      <div class="gk-details-head">
+        <div>
+          <span class="gk-eyebrow">Affiliations</span>
+          <h2 id="gk-membership-title">Organisations professionnelles</h2>
+        </div>
+        <div>
+          <p class="gk-lead">Je suis membre de l’Association polonaise des traducteurs assermentés et spécialisés TEPIS
+            ainsi que de l’organisation canadienne OTTIAQ.</p>
+          <p>Mon adhésion à ces organisations professionnelles me permet de développer continuellement mes compétences
+            et de rester au fait des normes applicables à la profession de traducteur assermenté.</p>
+          <div aria-label="Organisations professionnelles" class="gk-membership">
+            <span>TEPIS</span>
+            <span>OTTIAQ N° 35299</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="gk-about-cta" aria-labelledby="gk-about-cta-title">
     <div class="gk-wrap">
-      <span class="gk-eyebrow">Collaboration</span>
-      <h2 id="gk-about-cta-title">Vous avez besoin d’une traduction en polonais ou en français&nbsp;?</h2>
-      <p>Envoyez un scan ou une photo du document en précisant la langue, le délai souhaité et l’institution à laquelle
-        la traduction est destinée. Vous recevrez ensuite un devis personnalisé.</p>
+      <span class="gk-eyebrow">Devis gratuit</span>
+      <h2 id="gk-about-cta-title">Vous avez besoin d’une traduction depuis le français&nbsp;?</h2>
+      <p>Que vous ayez besoin de traduire des documents officiels, des documents destinés au Canada ou des contenus
+        spécialisés, je serai ravie de vous aider. Envoyez votre document pour recevoir gratuitement une estimation du
+        prix et du délai de réalisation.</p>
       <div class="gk-hero-actions">
-        <a class="gk-button" href="mailto:kos.traduction@gmail.com?subject=Demande%20de%20devis%20de%20traduction">Écrire
-          un e-mail</a>
+        <a class="gk-button" href="/kontakt/fr">Demander un devis</a>
       </div>
     </div>
   </section>
