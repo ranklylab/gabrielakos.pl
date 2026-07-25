@@ -1,0 +1,386 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500;600&display=swap');
+
+  .gk-block {
+    --gk-paper: #f4f0e8;
+    --gk-paper-light: #fbf8f2;
+    --gk-ink: #2d302f;
+    --gk-soft: #706f68;
+    --gk-line: #ddd5c8;
+    --gk-accent: #944939;
+    --gk-accent-dark: #78382d;
+    --gk-accent-soft: #eaded7;
+    --gk-white: #fffdf9;
+    --gk-shadow: 0 22px 60px rgba(55, 44, 34, .10);
+    width: 100%;
+    color: var(--gk-ink);
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .gk-block,
+  .gk-block *,
+  .gk-block *::before,
+  .gk-block *::after {
+    box-sizing: border-box;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block h4,
+  .gk-block p,
+  .gk-block ul {
+    margin-top: 0;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block h4 {
+    color: var(--gk-ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: .005em;
+  }
+
+  .gk-block a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .gk-block p+p {
+    margin-top: 16px;
+  }
+
+  .gk-block ul {
+    padding-left: 1.2rem;
+  }
+
+  .gk-block li+li {
+    margin-top: 7px;
+  }
+
+  .gk-block .gk-wrap {
+    width: min(1160px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .gk-block .gk-eyebrow {
+    display: inline-block;
+    color: var(--gk-accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+  }
+
+  .gk-block .gk-lead {
+    color: var(--gk-soft);
+    font-size: 19px;
+  }
+
+  .gk-block .gk-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 24px;
+    border: 1px solid var(--gk-ink);
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+
+  .gk-block .gk-button:hover {
+    background: var(--gk-accent);
+    border-color: var(--gk-accent);
+    color: var(--gk-paper-light);
+  }
+
+  .gk-block .gk-hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+
+  .gk-block .gk-photo {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gk-line);
+    background: linear-gradient(145deg, rgba(148, 73, 57, .08), rgba(255, 255, 255, .2)), radial-gradient(circle at 68% 24%, rgba(148, 73, 57, .20), transparent 28%), linear-gradient(155deg, #ddd2c3, #c8b9a6);
+    box-shadow: var(--gk-shadow);
+  }
+
+  .gk-block .gk-photo.gk-vertical {
+    aspect-ratio: 4/5;
+  }
+
+  .gk-block .gk-photo::before {
+    content: "";
+    position: absolute;
+    inset: 26px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .gk-block .gk-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .gk-o-mnie-page {
+    background: var(--gk-paper-light);
+  }
+
+  .gk-o-mnie-page .gk-about-hero {
+    padding: 104px 0;
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-o-mnie-page .gk-about-grid {
+    display: grid;
+    grid-template-columns: minmax(300px, .8fr) minmax(0, 1.2fr);
+    gap: 76px;
+    align-items: start;
+  }
+
+  .gk-o-mnie-page h1 {
+    margin: 12px 0 24px;
+    font-size: clamp(40px, 5vw, 60px);
+  }
+
+  .gk-o-mnie-page .gk-about-copy p {
+    color: var(--gk-soft);
+  }
+
+  .gk-o-mnie-page .gk-about-copy .gk-lead {
+    color: var(--gk-ink);
+  }
+
+  .gk-o-mnie-page .gk-membership {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .gk-o-mnie-page .gk-membership span {
+    padding: 7px 13px;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-paper);
+    color: var(--gk-soft);
+    font-size: 12px;
+    letter-spacing: .05em;
+  }
+
+  .gk-o-mnie-page .gk-details {
+    padding: 104px 0;
+    background: var(--gk-paper);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-o-mnie-page .gk-details-head {
+    display: grid;
+    grid-template-columns: .75fr 1.25fr;
+    gap: 50px;
+    align-items: start;
+    margin-bottom: 50px;
+  }
+
+  .gk-o-mnie-page .gk-details-head h2 {
+    margin: 12px 0 0;
+    font-size: clamp(40px, 5vw, 58px);
+  }
+
+  .gk-o-mnie-page .gk-details-head p {
+    color: var(--gk-soft);
+  }
+
+  .gk-o-mnie-page .gk-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .gk-o-mnie-page .gk-detail-card {
+    padding: 30px;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-paper-light);
+  }
+
+  .gk-o-mnie-page .gk-detail-card h3 {
+    margin-bottom: 14px;
+    font-size: 28px;
+  }
+
+  .gk-o-mnie-page .gk-detail-card p,
+  .gk-o-mnie-page .gk-detail-card li {
+    color: var(--gk-soft);
+    font-size: 15px;
+  }
+
+  .gk-o-mnie-page .gk-about-cta {
+    padding: 104px 0;
+    text-align: center;
+  }
+
+  .gk-o-mnie-page .gk-about-cta h2 {
+    max-width: 14ch;
+    margin: 12px auto 22px;
+    font-size: clamp(39px, 5vw, 58px);
+  }
+
+  .gk-o-mnie-page .gk-about-cta p {
+    max-width: 60ch;
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--gk-soft);
+  }
+
+  .gk-o-mnie-page .gk-about-cta .gk-hero-actions {
+    justify-content: center;
+  }
+
+  @media(max-width:980px) {
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 40px), 760px);
+    }
+
+    .gk-o-mnie-page .gk-about-grid,
+    .gk-o-mnie-page .gk-details-head {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+
+    .gk-o-mnie-page .gk-photo {
+      max-width: 480px;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-block {
+      font-size: 16px;
+    }
+
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 32px), 560px);
+    }
+
+    .gk-block .gk-button {
+      width: 100%;
+    }
+
+    .gk-o-mnie-page .gk-about-hero,
+    .gk-o-mnie-page .gk-details,
+    .gk-o-mnie-page .gk-about-cta {
+      padding: 78px 0;
+    }
+
+    .gk-o-mnie-page .gk-about-grid {
+      gap: 38px;
+    }
+
+    .gk-o-mnie-page .gk-details-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<main class="gk-block gk-o-mnie-page">
+  <section class="gk-about-hero" aria-labelledby="gk-about-title">
+    <div class="gk-wrap gk-about-grid">
+      <div class="gk-photo gk-vertical">
+        <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-44.jpg"
+          alt="Gabriela Kos, tłumaczka przysięgła języka francuskiego" width="1200" height="900">
+      </div>
+      <div class="gk-about-copy">
+        <span class="gk-eyebrow">O mnie</span>
+        <h1 id="gk-about-title">Doświadczenie językowe po obu stronach Atlantyku</h1>
+        <p class="gk-lead">Jestem tłumaczką przysięgłą języka francuskiego w Polsce (TP/96/21) oraz tłumaczką
+          uwierzytelnioną w Kanadzie (OTTIAQ N°: 35299).</p>
+        <p>Ukończyłam studia magisterskie na kierunku filologia romańska, specjalizacja przekładoznawcza, na
+          Uniwersytecie Jagiellońskim w Krakowie. Jestem również absolwentką Podyplomowych Studiów dla Tłumaczy Ustnych
+          na Katedrze Przekładoznawstwa Uniwersytetu Jagiellońskiego.</p>
+        <p>Wykształcenie tłumaczeniowe rozwijałam także w ramach Interdyscyplinarnego Podyplomowego Studium Kształcenia
+          Tłumaczy (IPSKT) na Uniwersytecie Warszawskim. Przygotowanie do pracy obejmuje więc zarówno przekład pisemny,
+          jak i tłumaczenie ustne.</p>
+        <p>Przez wiele lat mieszkałam w krajach frankofońskich: w Szwajcarii, Belgii i Kanadzie, w prowincji Québec.
+          Dzięki temu francuski jest dla mnie nie tylko językiem pracy, lecz także językiem poznanym w różnych
+          kontekstach instytucjonalnych i kulturowych.</p>
+        <p>Stale poszerzam kompetencje, uczestnicząc w kursach organizowanych m.in. przez TEPIS, OTTIAQ oraz
+          Francusko-Polską Izbę Gospodarczą.</p>
+        <div aria-label="Członkostwa i kwalifikacje" class="gk-membership">
+          <span>TP/96/21</span>
+          <span>OTTIAQ N° 35299</span>
+          <span>TEPIS</span>
+          <span>Uniwersytet Jagielloński</span>
+          <span>Uniwersytet Warszawski</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gk-details" aria-labelledby="gk-experience-title">
+    <div class="gk-wrap">
+      <div class="gk-details-head">
+        <div>
+          <span class="gk-eyebrow">Kompetencje</span>
+          <h2 id="gk-experience-title">Wykształcenie, praktyka i specjalizacja</h2>
+        </div>
+        <div>
+          <p class="gk-lead">Łączę formalne uprawnienia w Polsce i Kanadzie z doświadczeniem zdobywanym w kilku krajach
+            francuskojęzycznych.</p>
+          <p>W pracy koncentruję się przede wszystkim na dokumentach prawnych, urzędowych i imigracyjnych, w których
+            istotne są zarówno precyzja językowa, jak i znajomość celu, dla którego tłumaczenie będzie wykorzystane.</p>
+        </div>
+      </div>
+      <div class="gk-details-grid">
+        <article class="gk-detail-card">
+          <h3>Uprawnienia w Polsce</h3>
+          <p>Wykonuję tłumaczenia poświadczone z języka polskiego na francuski oraz z języka francuskiego na polski jako
+            tłumaczka przysięgła wpisana pod numerem TP/96/21.</p>
+        </article>
+        <article class="gk-detail-card">
+          <h3>Uprawnienia w Kanadzie</h3>
+          <p>Jako członkini OTTIAQ wykonuję tłumaczenia uwierzytelnione przeznaczone dla kanadyjskich instytucji, w tym
+            dokumenty potrzebne w sprawach urzędowych i imigracyjnych.</p>
+        </article>
+        <article class="gk-detail-card">
+          <h3>Zakres językowy</h3>
+          <p>Oprócz tłumaczeń poświadczonych w parze polski–francuski oferuję tłumaczenia zwykłe z języka angielskiego
+            na francuski oraz tłumaczenia ustne.</p>
+        </article>
+        <article class="gk-detail-card">
+          <h3>Główne obszary pracy</h3>
+          <p>Tłumaczę m.in. wyroki sądowe, akty notarialne, dokumenty Urzędu Stanu Cywilnego, umowy oraz dokumenty
+            imigracyjne.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="gk-about-cta" aria-labelledby="gk-about-cta-title">
+    <div class="gk-wrap">
+      <span class="gk-eyebrow">Współpraca</span>
+      <h2 id="gk-about-cta-title">Potrzebujesz tłumaczenia po polsku lub po francusku?</h2>
+      <p>Prześlij skan albo zdjęcie dokumentu wraz z informacją o języku, terminie i instytucji, dla której
+        przygotowywane jest tłumaczenie. Na tej podstawie otrzymasz indywidualną wycenę.</p>
+      <div class="gk-hero-actions">
+        <a class="gk-button" href="mailto:kos.traduction@gmail.com?subject=Prośba%20o%20wycenę%20tłumaczenia">Napisz
+          e-mail</a>
+      </div>
+    </div>
+  </section>
+</main>

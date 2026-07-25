@@ -1,0 +1,330 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500;600&display=swap');
+
+  .gk-block {
+    --gk-paper: #f4f0e8;
+    --gk-paper-light: #fbf8f2;
+    --gk-ink: #2d302f;
+    --gk-soft: #706f68;
+    --gk-line: #ddd5c8;
+    --gk-accent: #944939;
+    --gk-accent-dark: #78382d;
+    --gk-accent-soft: #eaded7;
+    --gk-white: #fffdf9;
+    --gk-shadow: 0 22px 60px rgba(55, 44, 34, .10);
+    width: 100%;
+    color: var(--gk-ink);
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .gk-block,
+  .gk-block *,
+  .gk-block *::before,
+  .gk-block *::after {
+    box-sizing: border-box;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block p,
+  .gk-block ul {
+    margin-top: 0;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3 {
+    color: var(--gk-ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: .005em;
+  }
+
+  .gk-block a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .gk-block p+p {
+    margin-top: 16px;
+  }
+
+  .gk-block ul {
+    padding-left: 1.2rem;
+  }
+
+  .gk-block li+li {
+    margin-top: 7px;
+  }
+
+  .gk-block .gk-wrap {
+    width: min(1160px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .gk-block .gk-eyebrow {
+    display: inline-block;
+    color: var(--gk-accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+  }
+
+  .gk-block .gk-lead {
+    color: var(--gk-soft);
+    font-size: 19px;
+  }
+
+  .gk-block .gk-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 24px;
+    border: 1px solid var(--gk-ink);
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+
+  .gk-block .gk-button:hover {
+    background: var(--gk-accent);
+    border-color: var(--gk-accent);
+    color: var(--gk-paper-light);
+  }
+
+  .gk-kontakt-page {
+    background: var(--gk-paper);
+  }
+
+  .gk-kontakt-page .gk-contact-hero {
+    padding: 104px 0;
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-kontakt-page .gk-contact-grid {
+    display: grid;
+    grid-template-columns: .86fr 1.14fr;
+    gap: 74px;
+    align-items: start;
+  }
+
+  .gk-kontakt-page h1 {
+    margin: 12px 0 22px;
+    font-size: clamp(40px, 5vw, 58px);
+  }
+
+  .gk-kontakt-page .gk-contact-list {
+    margin-top: 34px;
+  }
+
+  .gk-kontakt-page .gk-contact-item {
+    padding: 17px 0;
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-kontakt-page .gk-contact-item:first-child {
+    border-top: 1px solid var(--gk-line);
+  }
+
+  .gk-kontakt-page .gk-contact-item small {
+    display: block;
+    color: var(--gk-accent);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .gk-kontakt-page .gk-contact-item a:hover {
+    color: var(--gk-accent);
+  }
+
+  .gk-kontakt-page .gk-contact-card {
+    padding: 36px;
+    background: var(--gk-paper-light);
+    border: 1px solid var(--gk-line);
+    box-shadow: var(--gk-shadow);
+  }
+
+  .gk-kontakt-page .gk-contact-card h2 {
+    margin: 12px 0 13px;
+    font-size: 34px;
+  }
+
+  .gk-kontakt-page .gk-contact-card p,
+  .gk-kontakt-page .gk-contact-card li {
+    color: var(--gk-soft);
+  }
+
+  .gk-kontakt-page .gk-contact-card .gk-button {
+    margin-top: 28px;
+  }
+
+  .gk-kontakt-page .gk-contact-details {
+    padding: 104px 0;
+    background: var(--gk-paper-light);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-kontakt-page .gk-section-head {
+    margin-bottom: 46px;
+  }
+
+  .gk-kontakt-page .gk-section-head h2 {
+    max-width: 14ch;
+    margin: 12px 0 0;
+    font-size: clamp(39px, 5vw, 58px);
+  }
+
+  .gk-kontakt-page .gk-section-head .gk-lead {
+    max-width: 60ch;
+    margin-top: 16px;
+  }
+
+  .gk-kontakt-page .gk-details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .gk-kontakt-page .gk-detail-card {
+    padding: 30px;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-paper);
+  }
+
+  .gk-kontakt-page .gk-detail-card h3 {
+    margin-bottom: 14px;
+    font-size: 28px;
+  }
+
+  .gk-kontakt-page .gk-detail-card p,
+  .gk-kontakt-page .gk-detail-card li {
+    color: var(--gk-soft);
+    font-size: 15px;
+  }
+
+  @media(max-width:980px) {
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 40px), 760px);
+    }
+
+    .gk-kontakt-page .gk-contact-grid {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-block {
+      font-size: 16px;
+    }
+
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 32px), 560px);
+    }
+
+    .gk-block .gk-button {
+      width: 100%;
+    }
+
+    .gk-kontakt-page .gk-contact-hero,
+    .gk-kontakt-page .gk-contact-details {
+      padding: 78px 0;
+    }
+
+    .gk-kontakt-page .gk-contact-grid {
+      gap: 38px;
+    }
+
+    .gk-kontakt-page .gk-contact-card {
+      padding: 24px;
+    }
+
+    .gk-kontakt-page .gk-details-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<main class="gk-block gk-kontakt-page">
+  <section class="gk-contact-hero" aria-labelledby="gk-contact-title">
+    <div class="gk-wrap gk-contact-grid">
+      <div class="gk-contact-copy">
+        <span class="gk-eyebrow">Kontakt</span>
+        <h1 id="gk-contact-title">Porozmawiajmy o Twoim tłumaczeniu</h1>
+        <p class="gk-lead">Skontaktuj się telefonicznie lub mailowo, aby omówić dokument i otrzymać indywidualną
+          wycenę.</p>
+        <p>Spotkanie osobiste możliwe jest po wcześniejszym kontakcie telefonicznym lub mailowym.</p>
+        <div class="gk-contact-list">
+          <div class="gk-contact-item"><small>Gabriela Kos</small><span>Tłumaczka przysięgła języka francuskiego</span>
+          </div>
+          <div class="gk-contact-item"><small>Adres</small><span>ul. Szopkarzy 6/32<br>31-228 Kraków</span></div>
+          <div class="gk-contact-item"><small>Telefon</small><a href="tel:+48507824721">507 824 721</a></div>
+          <div class="gk-contact-item"><small>E-mail</small><a
+              href="mailto:kos.traduction@gmail.com">kos.traduction@gmail.com</a></div>
+          <div class="gk-contact-item"><small>NIP</small><span>5492363968</span></div>
+        </div>
+      </div>
+      <aside class="gk-contact-card">
+        <span class="gk-eyebrow">Szybki kontakt</span>
+        <h2>Prześlij skan lub zdjęcie dokumentu</h2>
+        <p>Aby przygotować wycenę, potrzebuję zobaczyć cały materiał przeznaczony do tłumaczenia.</p>
+        <ul>
+          <li>dołącz czytelny skan lub zdjęcie dokumentu,</li>
+          <li>podaj język tłumaczenia,</li>
+          <li>wskaż oczekiwany termin,</li>
+          <li>napisz, dla jakiej instytucji dokument jest przygotowywany.</li>
+        </ul>
+        <p>Na tej podstawie otrzymasz indywidualną, niezobowiązującą wycenę.</p>
+        <a class="gk-button" href="mailto:kos.traduction@gmail.com?subject=Prośba%20o%20wycenę%20tłumaczenia">Napisz
+          e-mail</a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="gk-contact-details" aria-labelledby="gk-contact-details-title">
+    <div class="gk-wrap">
+      <div class="gk-section-head">
+        <span class="gk-eyebrow">Przed wiadomością</span>
+        <h2 id="gk-contact-details-title">Informacje potrzebne do sprawnej wyceny</h2>
+        <p class="gk-lead">Kilka szczegółów w pierwszej wiadomości pozwoli określić rodzaj tłumaczenia, jego objętość i
+          oczekiwany termin.</p>
+      </div>
+      <div class="gk-details-grid">
+        <article class="gk-detail-card">
+          <h3>Dokument</h3>
+          <p>Prześlij czytelny skan albo zdjęcie wszystkich stron. Układ dokumentu, tabele, wykresy i pismo odręczne są
+            uwzględniane przy przygotowaniu wyceny.</p>
+        </article>
+        <article class="gk-detail-card">
+          <h3>Język i rodzaj tłumaczenia</h3>
+          <p>Napisz, z jakiego i na jaki język ma zostać wykonane tłumaczenie oraz czy potrzebujesz tłumaczenia
+            poświadczonego, zwykłego czy ustnego.</p>
+        </article>
+        <article class="gk-detail-card">
+          <h3>Cel dokumentu</h3>
+          <p>Podaj nazwę instytucji, dla której przygotowywane jest tłumaczenie. Ma to szczególne znaczenie w przypadku
+            dokumentów przeznaczonych dla instytucji w Polsce lub Kanadzie.</p>
+        </article>
+        <article class="gk-detail-card">
+          <h3>Termin</h3>
+          <p>Wskaż oczekiwaną datę wykonania. Termin jest jednym z elementów branych pod uwagę przy indywidualnej
+            wycenie zlecenia.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>

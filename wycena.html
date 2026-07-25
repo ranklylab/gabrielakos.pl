@@ -1,0 +1,354 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500;600&display=swap');
+
+  .gk-block {
+    --gk-paper: #f4f0e8;
+    --gk-paper-light: #fbf8f2;
+    --gk-ink: #2d302f;
+    --gk-soft: #706f68;
+    --gk-line: #ddd5c8;
+    --gk-accent: #944939;
+    --gk-accent-dark: #78382d;
+    --gk-accent-soft: #eaded7;
+    --gk-white: #fffdf9;
+    --gk-shadow: 0 22px 60px rgba(55, 44, 34, .10);
+    width: 100%;
+    color: var(--gk-ink);
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .gk-block,
+  .gk-block *,
+  .gk-block *::before,
+  .gk-block *::after {
+    box-sizing: border-box;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block p {
+    margin-top: 0;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3 {
+    color: var(--gk-ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: .005em;
+  }
+
+  .gk-block a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .gk-block p+p {
+    margin-top: 16px;
+  }
+
+  .gk-block .gk-wrap {
+    width: min(1160px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .gk-block .gk-eyebrow {
+    display: inline-block;
+    color: var(--gk-accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+  }
+
+  .gk-block .gk-lead {
+    color: var(--gk-soft);
+    font-size: 19px;
+  }
+
+  .gk-block .gk-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 24px;
+    border: 1px solid var(--gk-ink);
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+
+  .gk-block .gk-button:hover {
+    background: var(--gk-accent);
+    border-color: var(--gk-accent);
+    color: var(--gk-paper-light);
+  }
+
+  .gk-block .gk-hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+
+  .gk-block .gk-photo {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gk-line);
+    background: linear-gradient(145deg, rgba(148, 73, 57, .08), rgba(255, 255, 255, .2)), radial-gradient(circle at 68% 24%, rgba(148, 73, 57, .20), transparent 28%), linear-gradient(155deg, #ddd2c3, #c8b9a6);
+    box-shadow: var(--gk-shadow);
+    aspect-ratio: 4/3;
+  }
+
+  .gk-block .gk-photo::before {
+    content: "";
+    position: absolute;
+    inset: 26px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .gk-block .gk-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .gk-wycena-page {
+    background: var(--gk-paper-light);
+  }
+
+  .gk-wycena-page .gk-pricing-hero {
+    padding: 104px 0;
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-wycena-page .gk-pricing-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(380px, .95fr);
+    gap: 72px;
+    align-items: center;
+  }
+
+  .gk-wycena-page h1 {
+    margin: 12px 0 22px;
+    font-size: clamp(40px, 5vw, 60px);
+  }
+
+  .gk-wycena-page .gk-pricing-copy p {
+    color: var(--gk-soft);
+  }
+
+  .gk-wycena-page .gk-rates {
+    display: grid;
+    gap: 1px;
+    margin: 30px 0;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-line);
+  }
+
+  .gk-wycena-page .gk-rate {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    padding: 18px 20px;
+    background: var(--gk-paper);
+    align-items: baseline;
+  }
+
+  .gk-wycena-page .gk-rate strong {
+    min-width: 110px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .gk-wycena-page .gk-rate span {
+    color: var(--gk-soft);
+    font-size: 14px;
+  }
+
+  .gk-wycena-page .gk-pricing-details {
+    padding: 104px 0;
+    background: var(--gk-paper);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-wycena-page .gk-section-head {
+    margin-bottom: 46px;
+  }
+
+  .gk-wycena-page .gk-section-head h2 {
+    max-width: 14ch;
+    margin: 12px 0 0;
+    font-size: clamp(39px, 5vw, 58px);
+  }
+
+  .gk-wycena-page .gk-section-head .gk-lead {
+    max-width: 60ch;
+    margin-top: 16px;
+  }
+
+  .gk-wycena-page .gk-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .gk-wycena-page .gk-detail-card {
+    padding: 30px;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-paper-light);
+  }
+
+  .gk-wycena-page .gk-detail-card h3 {
+    margin-bottom: 14px;
+    font-size: 28px;
+  }
+
+  .gk-wycena-page .gk-detail-card p {
+    color: var(--gk-soft);
+    font-size: 15px;
+  }
+
+  .gk-wycena-page .gk-detail-card.gk-wide {
+    grid-column: 1/-1;
+  }
+
+  .gk-wycena-page .gk-legal-note {
+    margin-top: 18px;
+    font-size: 13px;
+  }
+
+  @media(max-width:980px) {
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 40px), 760px);
+    }
+
+    .gk-wycena-page .gk-pricing-grid {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+
+    .gk-block .gk-photo {
+      aspect-ratio: 16/10;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-block {
+      font-size: 16px;
+    }
+
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 32px), 560px);
+    }
+
+    .gk-block .gk-button {
+      width: 100%;
+    }
+
+    .gk-wycena-page .gk-pricing-hero,
+    .gk-wycena-page .gk-pricing-details {
+      padding: 78px 0;
+    }
+
+    .gk-wycena-page .gk-pricing-grid {
+      gap: 38px;
+    }
+
+    .gk-wycena-page .gk-rate,
+    .gk-wycena-page .gk-detail-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gk-wycena-page .gk-rate {
+      gap: 3px;
+    }
+
+    .gk-wycena-page .gk-detail-card.gk-wide {
+      grid-column: auto;
+    }
+  }
+</style>
+
+<main class="gk-block gk-wycena-page">
+  <section class="gk-pricing-hero" aria-labelledby="gk-pricing-title">
+    <div class="gk-wrap gk-pricing-grid">
+      <div class="gk-pricing-copy">
+        <span class="gk-eyebrow">Wycena</span>
+        <h1 id="gk-pricing-title">Bezpłatnie i bez zobowiązań</h1>
+        <p class="gk-lead">Każde tłumaczenie wyceniam indywidualnie na podstawie przesłanego dokumentu.</p>
+        <p>Na koszt wpływają m.in. liczba znaków, stopień trudności, forma graficzna dokumentu — na przykład pismo
+          odręczne, tabele lub wykresy — a także termin wykonania zlecenia.</p>
+        <div class="gk-rates">
+          <div class="gk-rate"><strong>1125 znaków</strong><span>1 strona rozliczeniowa tłumaczenia poświadczonego, ze
+              spacjami</span></div>
+          <div class="gk-rate"><strong>1600 znaków</strong><span>1 strona rozliczeniowa tłumaczenia zwykłego, ze
+              spacjami</span></div>
+          <div class="gk-rate"><strong>4 godziny</strong><span>blok rozliczeniowy tłumaczenia ustnego</span></div>
+        </div>
+        <p>Prześlij czytelny skan lub zdjęcie całego dokumentu. W wiadomości wskaż język tłumaczenia, oczekiwany termin
+          i instytucję, dla której przygotowywany jest dokument.</p>
+        <div class="gk-hero-actions">
+          <a class="gk-button" href="mailto:kos.traduction@gmail.com?subject=Prośba%20o%20wycenę%20tłumaczenia">Wyślij
+            dokumenty do wyceny</a>
+        </div>
+      </div>
+      <div class="gk-photo">
+        <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-95.jpg"
+          alt="Gabriela Kos, tłumaczka przysięgła języka francuskiego" width="1200" height="900">
+      </div>
+    </div>
+  </section>
+
+  <section class="gk-pricing-details" aria-labelledby="gk-pricing-details-title">
+    <div class="gk-wrap">
+      <div class="gk-section-head">
+        <span class="gk-eyebrow">Zasady rozliczenia</span>
+        <h2 id="gk-pricing-details-title">Co warto wiedzieć przed zleceniem tłumaczenia</h2>
+        <p class="gk-lead">Sposób rozliczenia zależy od rodzaju tłumaczenia: poświadczonego, zwykłego albo ustnego.</p>
+      </div>
+      <div class="gk-detail-grid">
+        <article class="gk-detail-card">
+          <h3>Tłumaczenia poświadczone</h3>
+          <p>Jedna strona rozliczeniowa obejmuje 1125 znaków ze spacjami. Każda rozpoczęta strona jest liczona jako
+            cała.</p>
+        </article>
+        <article class="gk-detail-card">
+          <h3>Tłumaczenia zwykłe</h3>
+          <p>Jedna strona rozliczeniowa obejmuje 1600 znaków ze spacjami. Ostateczna liczba stron wynika z objętości
+            przygotowanego tłumaczenia.</p>
+        </article>
+        <article class="gk-detail-card">
+          <h3>Tłumaczenia ustne</h3>
+          <p>Podstawą rozliczenia jest czterogodzinny blok tłumaczenia ustnego. Szczegóły zlecenia są ustalane
+            indywidualnie.</p>
+        </article>
+        <article class="gk-detail-card">
+          <h3>Egzemplarz tłumaczenia</h3>
+          <p>Tłumaczenia sporządzane są w jednym egzemplarzu. Informację o wymaganej formie dokumentu warto przekazać
+            już przy zapytaniu o wycenę.</p>
+        </article>
+        <article class="gk-detail-card gk-wide">
+          <h3>Indywidualna wycena</h3>
+          <p>Przesłany materiał pozwala ocenić jego objętość, czytelność, układ i stopień trudności. Dzięki temu wycena
+            uwzględnia konkretny dokument oraz oczekiwany termin realizacji.</p>
+          <p class="gk-legal-note">Informacja nie stanowi oferty handlowej w rozumieniu art. 66 Kodeksu cywilnego.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>

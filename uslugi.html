@@ -1,0 +1,474 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500;600&display=swap');
+
+  .gk-block {
+    --gk-paper: #f4f0e8;
+    --gk-paper-light: #fbf8f2;
+    --gk-ink: #2d302f;
+    --gk-soft: #706f68;
+    --gk-line: #ddd5c8;
+    --gk-accent: #944939;
+    --gk-accent-dark: #78382d;
+    --gk-accent-soft: #eaded7;
+    --gk-white: #fffdf9;
+    --gk-shadow: 0 22px 60px rgba(55, 44, 34, .10);
+    width: 100%;
+    color: var(--gk-ink);
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .gk-block,
+  .gk-block *,
+  .gk-block *::before,
+  .gk-block *::after {
+    box-sizing: border-box;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block h4,
+  .gk-block p,
+  .gk-block ul {
+    margin-top: 0;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block h4 {
+    color: var(--gk-ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: .005em;
+  }
+
+  .gk-block a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .gk-block p+p {
+    margin-top: 16px;
+  }
+
+  .gk-block ul {
+    padding-left: 1.2rem;
+  }
+
+  .gk-block li+li {
+    margin-top: 7px;
+  }
+
+  .gk-block .gk-wrap {
+    width: min(1160px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .gk-block .gk-eyebrow {
+    display: inline-block;
+    color: var(--gk-accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+  }
+
+  .gk-block .gk-lead {
+    color: var(--gk-soft);
+    font-size: 19px;
+  }
+
+  .gk-block .gk-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 24px;
+    border: 1px solid var(--gk-ink);
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+
+  .gk-block .gk-button:hover {
+    background: var(--gk-accent);
+    border-color: var(--gk-accent);
+    color: var(--gk-paper-light);
+  }
+
+  .gk-block .gk-hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+
+  .gk-block .gk-photo {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gk-line);
+    background: linear-gradient(145deg, rgba(148, 73, 57, .08), rgba(255, 255, 255, .2)), radial-gradient(circle at 68% 24%, rgba(148, 73, 57, .20), transparent 28%), linear-gradient(155deg, #ddd2c3, #c8b9a6);
+    box-shadow: var(--gk-shadow);
+    aspect-ratio: 4/5;
+  }
+
+  .gk-block .gk-photo::before {
+    content: "";
+    position: absolute;
+    inset: 26px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .gk-block .gk-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .gk-uslugi-page {
+    background: var(--gk-paper);
+  }
+
+  .gk-uslugi-page .gk-services {
+    padding: 104px 0;
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-uslugi-page .gk-section-head {
+    margin-bottom: 46px;
+  }
+
+  .gk-uslugi-page .gk-section-head h1,
+  .gk-uslugi-page .gk-section-head h2 {
+    max-width: 14ch;
+    margin: 12px 0 0;
+    font-size: clamp(39px, 5vw, 58px);
+  }
+
+  .gk-uslugi-page .gk-section-head .gk-lead {
+    max-width: 60ch;
+    margin-top: 16px;
+  }
+
+  .gk-uslugi-page .gk-services-layout {
+    display: grid;
+    grid-template-columns: minmax(300px, .8fr) minmax(0, 1.2fr);
+    gap: 76px;
+    align-items: start;
+  }
+
+  .gk-uslugi-page .gk-services-photo {
+    position: sticky;
+    top: 110px;
+  }
+
+  .gk-uslugi-page .gk-service-list {
+    border-top: 1px solid var(--gk-line);
+  }
+
+  .gk-uslugi-page .gk-service {
+    padding: 36px 0 38px;
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-uslugi-page .gk-service-top {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 18px;
+  }
+
+  .gk-uslugi-page .gk-service-number {
+    color: var(--gk-accent);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 16px;
+    padding-top: 7px;
+  }
+
+  .gk-uslugi-page .gk-service h3 {
+    font-size: clamp(28px, 3.4vw, 40px);
+  }
+
+  .gk-uslugi-page .gk-service h4 {
+    margin: 26px 0 10px;
+    font-family: "Karla", sans-serif;
+    color: var(--gk-accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .gk-uslugi-page .gk-service p,
+  .gk-uslugi-page .gk-service li {
+    color: var(--gk-soft);
+  }
+
+  .gk-uslugi-page .gk-service-note {
+    margin-top: 20px;
+    padding: 18px 20px;
+    border-left: 2px solid var(--gk-accent);
+    background: var(--gk-accent-soft);
+    color: var(--gk-ink) !important;
+  }
+
+  .gk-uslugi-page .gk-choose {
+    padding: 104px 0;
+    background: var(--gk-paper-light);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-uslugi-page .gk-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .gk-uslugi-page .gk-choose-card {
+    padding: 30px;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-paper);
+  }
+
+  .gk-uslugi-page .gk-choose-card h3 {
+    margin-bottom: 14px;
+    font-size: 28px;
+  }
+
+  .gk-uslugi-page .gk-choose-card p {
+    color: var(--gk-soft);
+    font-size: 15px;
+  }
+
+  .gk-uslugi-page .gk-services-cta {
+    padding: 104px 0;
+    text-align: center;
+  }
+
+  .gk-uslugi-page .gk-services-cta h2 {
+    max-width: 14ch;
+    margin: 12px auto 22px;
+    font-size: clamp(39px, 5vw, 58px);
+  }
+
+  .gk-uslugi-page .gk-services-cta p {
+    max-width: 60ch;
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--gk-soft);
+  }
+
+  .gk-uslugi-page .gk-services-cta .gk-hero-actions {
+    justify-content: center;
+  }
+
+  @media(max-width:980px) {
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 40px), 760px);
+    }
+
+    .gk-uslugi-page .gk-services-layout {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+
+    .gk-uslugi-page .gk-services-photo {
+      position: static;
+      max-width: 480px;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-block {
+      font-size: 16px;
+    }
+
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 32px), 560px);
+    }
+
+    .gk-block .gk-button {
+      width: 100%;
+    }
+
+    .gk-uslugi-page .gk-services,
+    .gk-uslugi-page .gk-choose,
+    .gk-uslugi-page .gk-services-cta {
+      padding: 78px 0;
+    }
+
+    .gk-uslugi-page .gk-services-layout {
+      gap: 38px;
+    }
+
+    .gk-uslugi-page .gk-service-top {
+      grid-template-columns: 32px 1fr;
+      gap: 12px;
+    }
+
+    .gk-uslugi-page .gk-choose-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<main class="gk-block gk-uslugi-page">
+  <section class="gk-services" aria-labelledby="gk-services-title">
+    <div class="gk-wrap">
+      <div class="gk-section-head">
+        <span class="gk-eyebrow">Usługi</span>
+        <h1 id="gk-services-title">Tłumaczenia dopasowane do celu dokumentu</h1>
+        <p class="gk-lead">Od aktów stanu cywilnego i dokumentów prawnych po materiały biznesowe, dokumentację
+          techniczną oraz tłumaczenia ustne.</p>
+      </div>
+      <div class="gk-services-layout">
+        <div class="gk-services-photo">
+          <div class="gk-photo">
+            <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-97.jpg"
+              alt="Gabriela Kos, tłumaczka przysięgła języka francuskiego" width="1200" height="900">
+          </div>
+        </div>
+        <div class="gk-service-list">
+          <article class="gk-service">
+            <div class="gk-service-top">
+              <span class="gk-service-number">01</span>
+              <h3>Tłumaczenia poświadczone, tzw. „przysięgłe”</h3>
+            </div>
+            <p><strong>Języki:</strong> polski, francuski.</p>
+            <p>Tłumaczenia poświadczone przygotowuję z języka polskiego na francuski oraz z francuskiego na polski.
+              Są przeznaczone m.in. do wykorzystania w urzędach, sądach, kancelariach, bankach i innych instytucjach.</p>
+            <h4>Przykładowe dokumenty</h4>
+            <ul>
+              <li>odpisy aktów stanu cywilnego: akt urodzenia, akt małżeństwa, akt zgonu,</li>
+              <li>akty notarialne: pełnomocnictwo, umowa sprzedaży, testament,</li>
+              <li>świadectwa, dyplomy i uprawnienia,</li>
+              <li>dokumentacja bankowa: umowy kredytowe, wyciągi z rachunków,</li>
+              <li>dokumentacja finansowa: sprawozdania, bilanse, deklaracje podatkowe,</li>
+              <li>dokumentacja medyczna: karty leczenia szpitalnego, wyniki badań,</li>
+              <li>dokumentacja samochodowa: dowody rejestracyjne, prawa jazdy, karty pojazdu,</li>
+              <li>pełnomocnictwa i polisy ubezpieczeniowe,</li>
+              <li>wyciągi KRS, CEIDG i K-bis, umowy spółek oraz sprawozdania,</li>
+              <li>zaświadczenia o niekaralności.</li>
+            </ul>
+            <p class="gk-service-note">Oferuję również tłumaczenia poświadczone podpisem elektronicznym.</p>
+          </article>
+          <article class="gk-service">
+            <div class="gk-service-top">
+              <span class="gk-service-number">02</span>
+              <h3>Tłumaczenia specjalistyczne</h3>
+            </div>
+            <p><strong>Języki:</strong> polski, francuski, angielski.</p>
+            <p>Wykonuję tłumaczenia specjalistyczne z zakresu prawa i administracji. Obejmują one zarówno dokumenty
+              kierowane do instytucji, jak i materiały wykorzystywane w działalności firm.</p>
+            <h4>Zakres</h4>
+            <ul>
+              <li>dokumenty prawne i administracyjne,</li>
+              <li>dokumenty unijne,</li>
+              <li>tłumaczenia techniczne: deklaracje zgodności, karty techniczne,</li>
+              <li>tłumaczenia dla biznesu: strony internetowe, katalogi i materiały marketingowe,</li>
+              <li>tłumaczenia dla branży turystycznej.</li>
+            </ul>
+            <p>Oferuję także tłumaczenia zwykłe z języka angielskiego na francuski.</p>
+          </article>
+          <article class="gk-service">
+            <div class="gk-service-top">
+              <span class="gk-service-number">03</span>
+              <h3>Tłumaczenia uwierzytelnione w Kanadzie</h3>
+            </div>
+            <p><strong>Języki:</strong> polski, francuski.</p>
+            <p>Jako członkini OTTIAQ wykonuję tłumaczenia uznawane przez instytucje państwowe w Kanadzie, np. IRCC, a w
+              szczególności w prowincji Québec przez SAAQ, MIFI, sądy i szpitale.</p>
+            <p>Niektóre kanadyjskie instytucje wymagają tłumaczeń certyfikowanych przez tłumaczy z kanadyjskimi
+              uprawnieniami. Dotyczy to w szczególności prawa jazdy, a czasami także dyplomów lub dokumentów potrzebnych
+              w procesie imigracyjnym.</p>
+            <p>Przed wyjazdem do Kanady możesz przetłumaczyć niezbędne dokumenty i uniknąć dodatkowych formalności na
+              miejscu. Oferuję tłumaczenie wymaganych dokumentów na język francuski, a każde takie zlecenie wyceniam
+              indywidualnie.</p>
+            <h4>Przykładowe zastosowania</h4>
+            <ul>
+              <li>sprawy imigracyjne i dokumenty dla IRCC lub MIFI,</li>
+              <li>dokumenty związane z prawem jazdy dla SAAQ,</li>
+              <li>dyplomy i dokumenty dotyczące wykształcenia,</li>
+              <li>dokumenty składane w sądach i szpitalach w Québecu.</li>
+            </ul>
+          </article>
+          <article class="gk-service">
+            <div class="gk-service-top">
+              <span class="gk-service-number">04</span>
+              <h3>Tłumaczenia ustne</h3>
+            </div>
+            <p>Tłumaczenia ustne wykonuję podczas czynności urzędowych, prawnych i biznesowych, w tym:</p>
+            <ul>
+              <li>w Urzędach Stanu Cywilnego,</li>
+              <li>dla organów wymiaru sprawiedliwości: w sądach, prokuraturze, na Policji i w zakładach karnych,</li>
+              <li>w urzędach miejskich i instytucjach publicznych,</li>
+              <li>podczas czynności notarialnych i w kancelariach prawnych,</li>
+              <li>podczas spotkań biznesowych.</li>
+            </ul>
+            <p>Przy zapytaniu podaj miejsce, termin i przewidywany czas spotkania oraz krótko opisz jego przedmiot.
+              Tłumaczenia ustne rozliczane są w czterogodzinnych blokach.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gk-choose" aria-labelledby="gk-choose-title">
+    <div class="gk-wrap">
+      <div class="gk-section-head">
+        <span class="gk-eyebrow">Jak dobrać usługę</span>
+        <h2 id="gk-choose-title">Rodzaj tłumaczenia zależy od jego przeznaczenia</h2>
+        <p class="gk-lead">Jeżeli instytucja określiła swoje wymagania, przekaż je razem z dokumentem przy zapytaniu o
+          wycenę.</p>
+      </div>
+      <div class="gk-choose-grid">
+        <article class="gk-choose-card">
+          <h3>Do instytucji w Polsce</h3>
+          <p>W sprawach urzędowych może być potrzebne tłumaczenie poświadczone wykonane przez tłumacza przysięgłego
+            języka francuskiego w Polsce.</p>
+        </article>
+        <article class="gk-choose-card">
+          <h3>Do instytucji w Kanadzie</h3>
+          <p>Wymagania mogą obejmować tłumaczenie przygotowane przez członkinię OTTIAQ, szczególnie w sprawach
+            prowadzonych w prowincji Québec.</p>
+        </article>
+        <article class="gk-choose-card">
+          <h3>Dla firmy lub publikacji</h3>
+          <p>Materiały prawne, administracyjne, techniczne, marketingowe i turystyczne mogą być przygotowane jako
+            tłumaczenia specjalistyczne.</p>
+        </article>
+        <article class="gk-choose-card">
+          <h3>Na spotkanie lub czynność</h3>
+          <p>W urzędzie, sądzie, kancelarii, u notariusza lub podczas spotkania biznesowego właściwą usługą jest
+            tłumaczenie ustne.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="gk-services-cta" aria-labelledby="gk-services-cta-title">
+    <div class="gk-wrap">
+      <span class="gk-eyebrow">Wycena</span>
+      <h2 id="gk-services-cta-title">Nie wiesz, jakiego rodzaju tłumaczenia potrzebujesz?</h2>
+      <p>Prześlij dokument i napisz, dla jakiej instytucji jest przygotowywany. W wiadomości podaj też język oraz
+        oczekiwany termin.</p>
+      <div class="gk-hero-actions">
+        <a class="gk-button" href="mailto:kos.traduction@gmail.com?subject=Prośba%20o%20wycenę%20tłumaczenia">Wyślij
+          dokument do wyceny</a>
+      </div>
+    </div>
+  </section>
+</main>
