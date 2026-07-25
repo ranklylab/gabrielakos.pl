@@ -105,6 +105,24 @@
     color: var(--gk-accent);
   }
 
+  .gk-header nav ul>li>a.gk-language-switch {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--gk-line);
+    border-radius: 50%;
+    background: var(--gk-paper-light);
+    font-size: 17px;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+  .gk-header nav ul>li>a.gk-language-switch:hover {
+    border-color: var(--gk-accent);
+  }
+
   .gk-header .gk-header-cta {
     display: inline-flex;
     align-items: center;
@@ -232,7 +250,7 @@
         <li><a href="/kontakt/fr">Contact</a></li>
         <li><a href="/fr/#polityka">RGPD</a></li>
         <li><a class="gk-language-switch" href="/" hreflang="pl" lang="pl"
-            aria-label="Version polonaise">PL</a></li>
+            aria-label="Version polonaise"><span aria-hidden="true">🇵🇱</span></a></li>
       </ul>
     </nav>
 
