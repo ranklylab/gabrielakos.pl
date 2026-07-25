@@ -37,6 +37,13 @@ Jeżeli tworzysz lub istotnie zmieniasz podstronę:
 
 Francuska wersja powinna być naturalnym tłumaczeniem, a nie tłumaczeniem słowo w słowo. Nie zmieniaj przy tym faktów ani zakresu usług.
 
+Sekcje strony głównej są podzielone na dwa katalogi:
+
+- `main/` — polska wersja strony głównej,
+- `main_fr/` — francuska wersja strony głównej.
+
+Odpowiadające sobie partiale w `main/` i `main_fr/` muszą mieć takie same nazwy, strukturę oraz identyczny CSS. Zmieniając sekcję strony głównej, zawsze zaktualizuj jej odpowiednik w drugim języku.
+
 ## Nawigacja i footer
 
 Wspólne partiale znajdują się w `shared/`:
