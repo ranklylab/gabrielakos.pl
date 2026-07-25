@@ -1,0 +1,171 @@
+<style>
+  .gk-block {
+    --gk-ink: #2d302f;
+    --gk-white: #fffdf9;
+    width: 100%;
+    color: var(--gk-ink);
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .gk-block,
+  .gk-block *,
+  .gk-block *::before,
+  .gk-block *::after {
+    box-sizing: border-box;
+  }
+
+  .gk-block p,
+  .gk-block ul {
+    margin-top: 0;
+  }
+
+  .gk-block a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .gk-block .gk-wrap {
+    width: min(1160px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .gk-footer {
+    padding: 64px 0 34px;
+    background: var(--gk-ink);
+    color: #bdb8ae;
+    font-size: 14px;
+  }
+
+  .gk-footer .gk-footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+  }
+
+  .gk-footer .gk-footer-brand {
+    margin-bottom: 7px;
+    color: var(--gk-white);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 27px;
+    line-height: 1.2;
+  }
+
+  .gk-footer h4 {
+    margin: 0 0 15px;
+    color: var(--gk-white);
+    font-family: "Karla", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  .gk-footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .gk-footer li+li {
+    margin-top: 8px;
+  }
+
+  .gk-footer a {
+    transition: color .2s ease;
+  }
+
+  .gk-footer a:hover {
+    color: var(--gk-white);
+  }
+
+  .gk-footer .gk-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 24px;
+    color: #88847c;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  @media (max-width:980px) {
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 40px), 760px);
+    }
+
+    .gk-footer .gk-footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .gk-footer .gk-footer-grid>div:first-child {
+      grid-column: 1/-1;
+    }
+  }
+
+  @media (max-width:620px) {
+    .gk-block {
+      font-size: 16px;
+    }
+
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 32px), 560px);
+    }
+
+    .gk-footer .gk-footer-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gk-footer .gk-footer-grid>div:first-child {
+      grid-column: auto;
+    }
+
+    .gk-footer .gk-footer-bottom {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<footer class="gk-block gk-footer">
+  <div class="gk-wrap">
+    <div class="gk-footer-grid">
+      <div>
+        <div class="gk-footer-brand">Gabriela Kos</div>
+        <p>
+          Tłumaczka przysięgła języka francuskiego<br>
+          Uprawnienia w Polsce i Kanadzie
+        </p>
+      </div>
+
+      <div>
+        <h4>Na skróty</h4>
+        <ul>
+          <li><a href="/#o-mnie">O mnie</a></li>
+          <li><a href="/#uslugi">Usługi</a></li>
+          <li><a href="/#wycena">Wycena</a></li>
+          <li><a href="/#kontakt">Kontakt</a></li>
+          <li><a href="/#polityka">Polityka prywatności</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+48507824721">507 824 721</a></li>
+          <li><a href="mailto:kos.traduction@gmail.com">kos.traduction@gmail.com</a></li>
+          <li>ul. Szopkarzy 6/32, Kraków</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="gk-footer-bottom">
+      <span>© 2026 Gabriela Kos · NIP 5492363968</span>
+      <span>TP/96/21 · OTTIAQ N° 35299 🍁</span>
+    </div>
+  </div>
+</footer>

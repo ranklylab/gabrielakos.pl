@@ -1,0 +1,260 @@
+<style>
+  .gk-block {
+    --gk-paper: #f4f0e8;
+    --gk-paper-light: #fbf8f2;
+    --gk-ink: #2d302f;
+    --gk-soft: #706f68;
+    --gk-line: #ddd5c8;
+    --gk-accent: #944939;
+    width: 100%;
+    color: var(--gk-ink);
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .gk-block,
+  .gk-block *,
+  .gk-block *::before,
+  .gk-block *::after {
+    box-sizing: border-box;
+  }
+
+  .gk-block a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .gk-block .gk-wrap {
+    width: min(1160px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .gk-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: rgba(244, 240, 232, .96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-header .gk-topbar {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 26px;
+  }
+
+  .gk-header .gk-brand {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 25px;
+    line-height: 1;
+    letter-spacing: .02em;
+    white-space: nowrap;
+  }
+
+  .gk-header .gk-brand small {
+    display: block;
+    margin-top: 5px;
+    color: var(--gk-soft);
+    font-family: "Karla", sans-serif;
+    font-size: 9px;
+    line-height: 1.2;
+    letter-spacing: .23em;
+    text-transform: uppercase;
+  }
+
+  .gk-header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--gk-soft);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .gk-header nav li {
+    margin: 0;
+  }
+
+  .gk-header nav a {
+    transition: color .2s ease;
+  }
+
+  .gk-header nav a:hover {
+    color: var(--gk-accent);
+  }
+
+  .gk-header .gk-header-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 24px;
+    border: 1px solid var(--gk-ink);
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    transition: background-color .2s ease, border-color .2s ease;
+  }
+
+  .gk-header .gk-header-cta:hover {
+    background: var(--gk-accent);
+    border-color: var(--gk-accent);
+  }
+
+  .gk-header .gk-menu-button {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--gk-ink);
+    cursor: pointer;
+  }
+
+  .gk-header .gk-menu-button span,
+  .gk-header .gk-menu-button::before,
+  .gk-header .gk-menu-button::after {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 1px;
+    margin: 6px auto;
+    background: currentColor;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+
+  .gk-header .gk-menu-button[aria-expanded="true"]::before {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .gk-header .gk-menu-button[aria-expanded="true"] span {
+    opacity: 0;
+  }
+
+  .gk-header .gk-menu-button[aria-expanded="true"]::after {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  @media (max-width:980px) {
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 40px), 760px);
+    }
+
+    .gk-header .gk-header-cta {
+      display: none;
+    }
+
+    .gk-header .gk-menu-button {
+      display: block;
+    }
+
+    .gk-header nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      display: none;
+      padding: 22px 20px 28px;
+      background: var(--gk-paper);
+      border-bottom: 1px solid var(--gk-line);
+      box-shadow: 0 18px 35px rgba(55, 44, 34, .08);
+    }
+
+    .gk-header nav.gk-open {
+      display: block;
+    }
+
+    .gk-header nav ul {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 17px;
+    }
+  }
+
+  @media (max-width:620px) {
+    .gk-block {
+      font-size: 16px;
+    }
+
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 32px), 560px);
+    }
+
+    .gk-header .gk-topbar {
+      min-height: 70px;
+    }
+
+    .gk-header .gk-brand {
+      font-size: 22px;
+    }
+  }
+</style>
+
+<header class="gk-block gk-header">
+  <div class="gk-wrap gk-topbar">
+    <a class="gk-brand" href="/fr/#start">
+      Gabriela Kos
+      <small>Tłumaczka przysięgła · Français</small>
+    </a>
+
+    <nav id="gk-site-nav" aria-label="Główna nawigacja">
+      <ul>
+        <li><a href="/#o-mnie">O mnie</a></li>
+        <li><a href="/#uslugi">Usługi</a></li>
+        <li><a href="/#wycena">Wycena</a></li>
+        <li><a href="/#kontakt">Kontakt</a></li>
+        <li><a href="/#polityka">RODO</a></li>
+      </ul>
+    </nav>
+
+    <a class="gk-header-cta" href="mailto:kos.traduction@gmail.com">Bezpłatna wycena</a>
+
+    <button class="gk-menu-button" type="button" aria-controls="gk-site-nav" aria-expanded="false"
+      aria-label="Otwórz menu">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<script>
+  (() => {
+    const script = document.currentScript;
+    const container = script?.parentElement;
+    const header = container?.querySelector('.gk-header');
+    const button = header?.querySelector('.gk-menu-button');
+    const nav = header?.querySelector('#gk-site-nav');
+
+    if (!button || !nav || button.dataset.gkReady === 'true') return;
+    button.dataset.gkReady = 'true';
+
+    const closeMenu = () => {
+      nav.classList.remove('gk-open');
+      button.setAttribute('aria-expanded', 'false');
+      button.setAttribute('aria-label', 'Otwórz menu');
+    };
+
+    button.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('gk-open');
+      button.setAttribute('aria-expanded', String(isOpen));
+      button.setAttribute('aria-label', isOpen ? 'Zamknij menu' : 'Otwórz menu');
+    });
+
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  })();
+</script>
