@@ -82,15 +82,26 @@
     text-transform: uppercase;
   }
 
-  .gk-header nav li {
+  .gk-header nav ul>li {
+    display: flex;
+    align-items: stretch;
     margin: 0;
+    padding: 0;
+    line-height: inherit;
   }
 
-  .gk-header nav a {
+  .gk-header nav ul>li>a {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    position: static;
+    line-height: inherit;
+    transform: none;
     transition: color .2s ease;
   }
 
-  .gk-header nav a:hover {
+  .gk-header nav ul>li>a:hover {
     color: var(--gk-accent);
   }
 

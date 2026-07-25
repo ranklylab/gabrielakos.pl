@@ -1,6 +1,4 @@
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500;600&display=swap');
-
   .gk-block {
     --gk-paper: #f4f0e8;
     --gk-paper-light: #fbf8f2;
@@ -30,13 +28,16 @@
   .gk-block h1,
   .gk-block h2,
   .gk-block h3,
-  .gk-block p {
+  .gk-block h4,
+  .gk-block p,
+  .gk-block ul {
     margin-top: 0;
   }
 
   .gk-block h1,
   .gk-block h2,
-  .gk-block h3 {
+  .gk-block h3,
+  .gk-block h4 {
     color: var(--gk-ink);
     font-family: "Cormorant Garamond", Georgia, serif;
     font-weight: 500;
@@ -51,6 +52,14 @@
 
   .gk-block p+p {
     margin-top: 16px;
+  }
+
+  .gk-block ul {
+    padding-left: 1.2rem;
+  }
+
+  .gk-block li+li {
+    margin-top: 7px;
   }
 
   .gk-block .gk-wrap {
@@ -94,6 +103,16 @@
     color: var(--gk-paper-light);
   }
 
+  .gk-block .gk-button.gk-secondary {
+    background: transparent;
+    color: var(--gk-ink);
+  }
+
+  .gk-block .gk-button.gk-secondary:hover {
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+  }
+
   .gk-block .gk-hero-actions {
     display: flex;
     gap: 14px;
@@ -107,7 +126,14 @@
     border: 1px solid var(--gk-line);
     background: linear-gradient(145deg, rgba(148, 73, 57, .08), rgba(255, 255, 255, .2)), radial-gradient(circle at 68% 24%, rgba(148, 73, 57, .20), transparent 28%), linear-gradient(155deg, #ddd2c3, #c8b9a6);
     box-shadow: var(--gk-shadow);
+  }
+
+  .gk-block .gk-photo.gk-horizontal {
     aspect-ratio: 4/3;
+  }
+
+  .gk-block .gk-photo.gk-vertical {
+    aspect-ratio: 4/5;
   }
 
   .gk-block .gk-photo::before {
@@ -124,6 +150,23 @@
     height: 100%;
     display: block;
     object-fit: cover;
+  }
+
+  .gk-block .gk-photo-label {
+    position: absolute;
+    left: 28px;
+    bottom: 24px;
+    z-index: 2;
+    padding: 9px 13px;
+    background: rgba(244, 240, 232, .9);
+    color: var(--gk-soft);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 15px;
+    font-style: italic;
+  }
+
+  .gk-block[id] {
+    scroll-margin-top: 92px;
   }
 
   .gk-wycena-page {
@@ -242,7 +285,7 @@
       gap: 46px;
     }
 
-    .gk-block .gk-photo {
+    .gk-block .gk-photo.gk-horizontal {
       aspect-ratio: 16/10;
     }
   }
@@ -307,7 +350,7 @@
             dokumenty do wyceny</a>
         </div>
       </div>
-      <div class="gk-photo">
+      <div class="gk-photo gk-horizontal">
         <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-95.jpg"
           alt="Gabriela Kos, tłumaczka przysięgła języka francuskiego" width="1200" height="900">
       </div>
