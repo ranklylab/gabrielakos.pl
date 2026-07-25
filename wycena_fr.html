@@ -1,0 +1,399 @@
+<style>
+  .gk-block {
+    --gk-paper: #f4f0e8;
+    --gk-paper-light: #fbf8f2;
+    --gk-ink: #2d302f;
+    --gk-soft: #706f68;
+    --gk-line: #ddd5c8;
+    --gk-accent: #944939;
+    --gk-accent-dark: #78382d;
+    --gk-accent-soft: #eaded7;
+    --gk-white: #fffdf9;
+    --gk-shadow: 0 22px 60px rgba(55, 44, 34, .10);
+    width: 100%;
+    color: var(--gk-ink);
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .gk-block,
+  .gk-block *,
+  .gk-block *::before,
+  .gk-block *::after {
+    box-sizing: border-box;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block h4,
+  .gk-block p,
+  .gk-block ul {
+    margin-top: 0;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block h4 {
+    color: var(--gk-ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: .005em;
+  }
+
+  .gk-block a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .gk-block p+p {
+    margin-top: 16px;
+  }
+
+  .gk-block ul {
+    padding-left: 1.2rem;
+  }
+
+  .gk-block li+li {
+    margin-top: 7px;
+  }
+
+  .gk-block .gk-wrap {
+    width: min(1160px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .gk-block .gk-eyebrow {
+    display: inline-block;
+    color: var(--gk-accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+  }
+
+  .gk-block .gk-lead {
+    color: var(--gk-soft);
+    font-size: 19px;
+  }
+
+  .gk-block .gk-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 24px;
+    border: 1px solid var(--gk-ink);
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+
+  .gk-block .gk-button:hover {
+    background: var(--gk-accent);
+    border-color: var(--gk-accent);
+    color: var(--gk-paper-light);
+  }
+
+  .gk-block .gk-button.gk-secondary {
+    background: transparent;
+    color: var(--gk-ink);
+  }
+
+  .gk-block .gk-button.gk-secondary:hover {
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+  }
+
+  .gk-block .gk-hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+
+  .gk-block .gk-photo {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gk-line);
+    background: linear-gradient(145deg, rgba(148, 73, 57, .08), rgba(255, 255, 255, .2)), radial-gradient(circle at 68% 24%, rgba(148, 73, 57, .20), transparent 28%), linear-gradient(155deg, #ddd2c3, #c8b9a6);
+    box-shadow: var(--gk-shadow);
+  }
+
+  .gk-block .gk-photo.gk-horizontal {
+    aspect-ratio: 4/3;
+  }
+
+  .gk-block .gk-photo.gk-vertical {
+    aspect-ratio: 4/5;
+  }
+
+  .gk-block .gk-photo::before {
+    content: "";
+    position: absolute;
+    inset: 26px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .gk-block .gk-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .gk-block .gk-photo-label {
+    position: absolute;
+    left: 28px;
+    bottom: 24px;
+    z-index: 2;
+    padding: 9px 13px;
+    background: rgba(244, 240, 232, .9);
+    color: var(--gk-soft);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 15px;
+    font-style: italic;
+  }
+
+  .gk-block[id] {
+    scroll-margin-top: 92px;
+  }
+
+  .gk-wycena-page {
+    background: var(--gk-paper-light);
+  }
+
+  .gk-wycena-page .gk-pricing-hero {
+    padding: 104px 0;
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-wycena-page .gk-pricing-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(380px, .95fr);
+    gap: 72px;
+    align-items: center;
+  }
+
+  .gk-wycena-page h1 {
+    margin: 12px 0 22px;
+    font-size: clamp(40px, 5vw, 60px);
+  }
+
+  .gk-wycena-page .gk-pricing-copy p {
+    color: var(--gk-soft);
+  }
+
+  .gk-wycena-page .gk-rates {
+    display: grid;
+    gap: 1px;
+    margin: 30px 0;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-line);
+  }
+
+  .gk-wycena-page .gk-rate {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    padding: 18px 20px;
+    background: var(--gk-paper);
+    align-items: baseline;
+  }
+
+  .gk-wycena-page .gk-rate strong {
+    min-width: 110px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .gk-wycena-page .gk-rate span {
+    color: var(--gk-soft);
+    font-size: 14px;
+  }
+
+  .gk-wycena-page .gk-pricing-details {
+    padding: 104px 0;
+    background: var(--gk-paper);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-wycena-page .gk-section-head {
+    margin-bottom: 46px;
+  }
+
+  .gk-wycena-page .gk-section-head h2 {
+    max-width: 14ch;
+    margin: 12px 0 0;
+    font-size: clamp(39px, 5vw, 58px);
+  }
+
+  .gk-wycena-page .gk-section-head .gk-lead {
+    max-width: 60ch;
+    margin-top: 16px;
+  }
+
+  .gk-wycena-page .gk-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .gk-wycena-page .gk-detail-card {
+    padding: 30px;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-paper-light);
+  }
+
+  .gk-wycena-page .gk-detail-card h3 {
+    margin-bottom: 14px;
+    font-size: 28px;
+  }
+
+  .gk-wycena-page .gk-detail-card p {
+    color: var(--gk-soft);
+    font-size: 15px;
+  }
+
+  .gk-wycena-page .gk-detail-card.gk-wide {
+    grid-column: 1/-1;
+  }
+
+  .gk-wycena-page .gk-legal-note {
+    margin-top: 18px;
+    font-size: 13px;
+  }
+
+  @media(max-width:980px) {
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 40px), 760px);
+    }
+
+    .gk-wycena-page .gk-pricing-grid {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+
+    .gk-block .gk-photo.gk-horizontal {
+      aspect-ratio: 16/10;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-block {
+      font-size: 16px;
+    }
+
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 32px), 560px);
+    }
+
+    .gk-block .gk-button {
+      width: 100%;
+    }
+
+    .gk-wycena-page .gk-pricing-hero,
+    .gk-wycena-page .gk-pricing-details {
+      padding: 78px 0;
+    }
+
+    .gk-wycena-page .gk-pricing-grid {
+      gap: 38px;
+    }
+
+    .gk-wycena-page .gk-rate,
+    .gk-wycena-page .gk-detail-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gk-wycena-page .gk-rate {
+      gap: 3px;
+    }
+
+    .gk-wycena-page .gk-detail-card.gk-wide {
+      grid-column: auto;
+    }
+  }
+</style>
+
+<main class="gk-block gk-wycena-page">
+  <section class="gk-pricing-hero" aria-labelledby="gk-pricing-title">
+    <div class="gk-wrap gk-pricing-grid">
+      <div class="gk-pricing-copy">
+        <span class="gk-eyebrow">Devis</span>
+        <h1 id="gk-pricing-title">Gratuit et sans engagement</h1>
+        <p class="gk-lead">Chaque traduction fait l’objet d’un devis personnalisé établi à partir du document reçu.</p>
+        <p>Le prix dépend notamment du nombre de caractères, du degré de difficulté, de la présentation graphique du
+          document — écriture manuscrite, tableaux ou graphiques — ainsi que du délai demandé.</p>
+        <div class="gk-rates">
+          <div class="gk-rate"><strong>1125 caractères</strong><span>1 page de traduction certifiée, espaces
+              comprises</span></div>
+          <div class="gk-rate"><strong>1600 caractères</strong><span>1 page de traduction non certifiée, espaces
+              comprises</span></div>
+          <div class="gk-rate"><strong>4 heures</strong><span>unité de facturation pour l’interprétation</span></div>
+        </div>
+        <p>Envoyez un scan lisible ou une photo de l’intégralité du document. Précisez la langue de traduction, le délai
+          souhaité et l’institution à laquelle le document est destiné.</p>
+        <div class="gk-hero-actions">
+          <a class="gk-button" href="mailto:kos.traduction@gmail.com?subject=Demande%20de%20devis%20de%20traduction">Envoyer
+            les documents</a>
+        </div>
+      </div>
+      <div class="gk-photo gk-horizontal">
+        <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-95.jpg"
+          alt="Gabriela Kos, traductrice assermentée de français" width="1200" height="900">
+      </div>
+    </div>
+  </section>
+
+  <section class="gk-pricing-details" aria-labelledby="gk-pricing-details-title">
+    <div class="gk-wrap">
+      <div class="gk-section-head">
+        <span class="gk-eyebrow">Modalités de facturation</span>
+        <h2 id="gk-pricing-details-title">Ce qu’il faut savoir avant de commander une traduction</h2>
+        <p class="gk-lead">La méthode de facturation dépend du type de prestation&nbsp;: traduction certifiée,
+          traduction non certifiée ou interprétation.</p>
+      </div>
+      <div class="gk-detail-grid">
+        <article class="gk-detail-card">
+          <h3>Traductions certifiées</h3>
+          <p>Une page de facturation comprend 1125 caractères, espaces comprises. Toute page commencée est facturée
+            comme une page entière.</p>
+        </article>
+        <article class="gk-detail-card">
+          <h3>Traductions non certifiées</h3>
+          <p>Une page de facturation comprend 1600 caractères, espaces comprises. Le nombre final de pages dépend du
+            volume de la traduction réalisée.</p>
+        </article>
+        <article class="gk-detail-card">
+          <h3>Interprétation</h3>
+          <p>L’interprétation est facturée par bloc de quatre heures. Les détails de chaque mission sont convenus
+            individuellement.</p>
+        </article>
+        <article class="gk-detail-card">
+          <h3>Exemplaire de la traduction</h3>
+          <p>Les traductions sont établies en un seul exemplaire. Il est préférable d’indiquer la forme requise du
+            document dès la demande de devis.</p>
+        </article>
+        <article class="gk-detail-card gk-wide">
+          <h3>Devis personnalisé</h3>
+          <p>Le document transmis permet d’évaluer son volume, sa lisibilité, sa mise en page et son degré de
+            difficulté. Le devis tient ainsi compte du document concerné et du délai souhaité.</p>
+          <p class="gk-legal-note">Ces informations ne constituent pas une offre commerciale au sens de l’article 66
+            du Code civil polonais.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>

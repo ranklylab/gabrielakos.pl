@@ -1,0 +1,492 @@
+<style>
+  .gk-block {
+    --gk-paper: #f4f0e8;
+    --gk-paper-light: #fbf8f2;
+    --gk-ink: #2d302f;
+    --gk-soft: #706f68;
+    --gk-line: #ddd5c8;
+    --gk-accent: #944939;
+    --gk-accent-dark: #78382d;
+    --gk-accent-soft: #eaded7;
+    --gk-white: #fffdf9;
+    --gk-shadow: 0 22px 60px rgba(55, 44, 34, .10);
+    width: 100%;
+    color: var(--gk-ink);
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .gk-block,
+  .gk-block *,
+  .gk-block *::before,
+  .gk-block *::after {
+    box-sizing: border-box;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block h4,
+  .gk-block p,
+  .gk-block ul {
+    margin-top: 0;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block h4 {
+    color: var(--gk-ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: .005em;
+  }
+
+  .gk-block a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .gk-block p+p {
+    margin-top: 16px;
+  }
+
+  .gk-block ul {
+    padding-left: 1.2rem;
+  }
+
+  .gk-block li+li {
+    margin-top: 7px;
+  }
+
+  .gk-block .gk-wrap {
+    width: min(1160px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .gk-block .gk-eyebrow {
+    display: inline-block;
+    color: var(--gk-accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+  }
+
+  .gk-block .gk-lead {
+    color: var(--gk-soft);
+    font-size: 19px;
+  }
+
+  .gk-block .gk-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 24px;
+    border: 1px solid var(--gk-ink);
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+
+  .gk-block .gk-button:hover {
+    background: var(--gk-accent);
+    border-color: var(--gk-accent);
+    color: var(--gk-paper-light);
+  }
+
+  .gk-block .gk-button.gk-secondary {
+    background: transparent;
+    color: var(--gk-ink);
+  }
+
+  .gk-block .gk-button.gk-secondary:hover {
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+  }
+
+  .gk-block .gk-hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+
+  .gk-block .gk-photo {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gk-line);
+    background: linear-gradient(145deg, rgba(148, 73, 57, .08), rgba(255, 255, 255, .2)), radial-gradient(circle at 68% 24%, rgba(148, 73, 57, .20), transparent 28%), linear-gradient(155deg, #ddd2c3, #c8b9a6);
+    box-shadow: var(--gk-shadow);
+  }
+
+  .gk-block .gk-photo.gk-horizontal {
+    aspect-ratio: 4/3;
+  }
+
+  .gk-block .gk-photo.gk-vertical {
+    aspect-ratio: 4/5;
+  }
+
+  .gk-block .gk-photo::before {
+    content: "";
+    position: absolute;
+    inset: 26px;
+    border: 1px solid rgba(255, 255, 255, .55);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .gk-block .gk-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .gk-block .gk-photo-label {
+    position: absolute;
+    left: 28px;
+    bottom: 24px;
+    z-index: 2;
+    padding: 9px 13px;
+    background: rgba(244, 240, 232, .9);
+    color: var(--gk-soft);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 15px;
+    font-style: italic;
+  }
+
+  .gk-block[id] {
+    scroll-margin-top: 92px;
+  }
+
+  .gk-uslugi-page {
+    background: var(--gk-paper);
+  }
+
+  .gk-uslugi-page .gk-services {
+    padding: 104px 0;
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-uslugi-page .gk-section-head {
+    margin-bottom: 46px;
+  }
+
+  .gk-uslugi-page .gk-section-head h1,
+  .gk-uslugi-page .gk-section-head h2 {
+    max-width: 14ch;
+    margin: 12px 0 0;
+    font-size: clamp(39px, 5vw, 58px);
+  }
+
+  .gk-uslugi-page .gk-section-head .gk-lead {
+    max-width: 60ch;
+    margin-top: 16px;
+  }
+
+  .gk-uslugi-page .gk-services-layout {
+    display: grid;
+    grid-template-columns: minmax(300px, .8fr) minmax(0, 1.2fr);
+    gap: 76px;
+    align-items: start;
+  }
+
+  .gk-uslugi-page .gk-services-photo {
+    position: sticky;
+    top: 110px;
+  }
+
+  .gk-uslugi-page .gk-service-list {
+    border-top: 1px solid var(--gk-line);
+  }
+
+  .gk-uslugi-page .gk-service {
+    padding: 36px 0 38px;
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-uslugi-page .gk-service-top {
+    margin-bottom: 18px;
+  }
+
+  .gk-uslugi-page .gk-service h3 {
+    font-size: clamp(28px, 3.4vw, 40px);
+  }
+
+  .gk-uslugi-page .gk-service h4 {
+    margin: 26px 0 10px;
+    font-family: "Karla", sans-serif;
+    color: var(--gk-accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .gk-uslugi-page .gk-service p,
+  .gk-uslugi-page .gk-service li {
+    color: var(--gk-soft);
+  }
+
+  .gk-uslugi-page .gk-service-note {
+    margin-top: 20px;
+    padding: 18px 20px;
+    border-left: 2px solid var(--gk-accent);
+    background: var(--gk-accent-soft);
+    color: var(--gk-ink) !important;
+  }
+
+  .gk-uslugi-page .gk-choose {
+    padding: 104px 0;
+    background: var(--gk-paper-light);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-uslugi-page .gk-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .gk-uslugi-page .gk-choose-card {
+    padding: 30px;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-paper);
+  }
+
+  .gk-uslugi-page .gk-choose-card h3 {
+    margin-bottom: 14px;
+    font-size: 28px;
+  }
+
+  .gk-uslugi-page .gk-choose-card p {
+    color: var(--gk-soft);
+    font-size: 15px;
+  }
+
+  .gk-uslugi-page .gk-services-cta {
+    padding: 104px 0;
+    text-align: center;
+  }
+
+  .gk-uslugi-page .gk-services-cta h2 {
+    max-width: 14ch;
+    margin: 12px auto 22px;
+    font-size: clamp(39px, 5vw, 58px);
+  }
+
+  .gk-uslugi-page .gk-services-cta p {
+    max-width: 60ch;
+    margin-right: auto;
+    margin-left: auto;
+    color: var(--gk-soft);
+  }
+
+  .gk-uslugi-page .gk-services-cta .gk-hero-actions {
+    justify-content: center;
+  }
+
+  @media(max-width:980px) {
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 40px), 760px);
+    }
+
+    .gk-block .gk-photo.gk-horizontal {
+      aspect-ratio: 16/10;
+    }
+
+    .gk-uslugi-page .gk-services-layout {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+
+    .gk-uslugi-page .gk-services-photo {
+      position: static;
+      max-width: 480px;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-block {
+      font-size: 16px;
+    }
+
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 32px), 560px);
+    }
+
+    .gk-block .gk-button {
+      width: 100%;
+    }
+
+    .gk-uslugi-page .gk-services,
+    .gk-uslugi-page .gk-choose,
+    .gk-uslugi-page .gk-services-cta {
+      padding: 78px 0;
+    }
+
+    .gk-uslugi-page .gk-services-layout {
+      gap: 38px;
+    }
+
+    .gk-uslugi-page .gk-choose-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<main class="gk-block gk-uslugi-page">
+  <section class="gk-services" aria-labelledby="gk-services-title">
+    <div class="gk-wrap">
+      <div class="gk-section-head">
+        <span class="gk-eyebrow">Services</span>
+        <h1 id="gk-services-title">Des traductions adaptées à la finalité du document</h1>
+        <p class="gk-lead">Des actes d’état civil et documents juridiques aux contenus professionnels, documents
+          techniques et prestations d’interprétation.</p>
+      </div>
+      <div class="gk-services-layout">
+        <div class="gk-services-photo">
+          <div class="gk-photo gk-vertical">
+            <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-97.jpg"
+              alt="Gabriela Kos, traductrice assermentée de français" width="1200" height="900">
+          </div>
+        </div>
+        <div class="gk-service-list">
+          <article class="gk-service">
+            <div class="gk-service-top">
+              <h3>Traductions certifiées, dites «&nbsp;assermentées&nbsp;»</h3>
+            </div>
+            <p><strong>Langues&nbsp;:</strong> polonais, français.</p>
+            <p>Je réalise des traductions certifiées du polonais vers le français et du français vers le polonais.
+              Elles sont notamment destinées aux administrations, tribunaux, études, banques et autres institutions.</p>
+            <h4>Exemples de documents</h4>
+            <ul>
+              <li>copies d’actes d’état civil&nbsp;: actes de naissance, de mariage et de décès,</li>
+              <li>actes notariés&nbsp;: procurations, contrats de vente et testaments,</li>
+              <li>certificats, diplômes et titres professionnels,</li>
+              <li>documents bancaires&nbsp;: contrats de crédit et relevés de compte,</li>
+              <li>documents financiers&nbsp;: rapports, bilans et déclarations fiscales,</li>
+              <li>documents médicaux&nbsp;: comptes rendus d’hospitalisation et résultats d’examens,</li>
+              <li>documents automobiles&nbsp;: certificats d’immatriculation, permis de conduire et cartes de véhicule,</li>
+              <li>procurations et polices d’assurance,</li>
+              <li>extraits KRS, CEIDG et K-bis, statuts de sociétés et rapports,</li>
+              <li>extraits de casier judiciaire.</li>
+            </ul>
+            <p class="gk-service-note">Je propose également des traductions certifiées revêtues d’une signature
+              électronique.</p>
+          </article>
+          <article class="gk-service">
+            <div class="gk-service-top">
+              <h3>Traductions spécialisées</h3>
+            </div>
+            <p><strong>Langues&nbsp;:</strong> polonais, français, anglais.</p>
+            <p>Je réalise des traductions spécialisées dans les domaines juridique et administratif. Elles comprennent
+              aussi bien des documents adressés aux institutions que des contenus utilisés par les entreprises.</p>
+            <h4>Domaines</h4>
+            <ul>
+              <li>documents juridiques et administratifs,</li>
+              <li>documents de l’Union européenne,</li>
+              <li>traductions techniques&nbsp;: déclarations de conformité et fiches techniques,</li>
+              <li>traductions pour les entreprises&nbsp;: sites internet, catalogues et supports marketing,</li>
+              <li>traductions pour le secteur du tourisme.</li>
+            </ul>
+            <p>Je propose également des traductions non certifiées de l’anglais vers le français.</p>
+          </article>
+          <article class="gk-service">
+            <div class="gk-service-top">
+              <h3>Traductions agréées au Canada</h3>
+            </div>
+            <p><strong>Langues&nbsp;:</strong> polonais, français.</p>
+            <p>En tant que membre de l’OTTIAQ, je réalise des traductions reconnues par les institutions publiques
+              canadiennes, notamment IRCC et, au Québec, la SAAQ, le MIFI, les tribunaux et les hôpitaux.</p>
+            <p>Certaines institutions canadiennes exigent que la traduction soit certifiée par un traducteur agréé au
+              Canada. Cela concerne notamment les permis de conduire et parfois les diplômes ou les documents requis
+              dans le cadre d’une procédure d’immigration.</p>
+            <p>Vous pouvez faire traduire les documents nécessaires avant votre départ pour le Canada et éviter des
+              démarches supplémentaires sur place. Je traduis les documents requis vers le français et établis un
+              devis personnalisé pour chaque dossier.</p>
+            <h4>Exemples d’utilisation</h4>
+            <ul>
+              <li>démarches d’immigration et documents pour IRCC ou le MIFI,</li>
+              <li>documents relatifs au permis de conduire pour la SAAQ,</li>
+              <li>diplômes et documents relatifs aux études,</li>
+              <li>documents remis aux tribunaux et hôpitaux du Québec.</li>
+            </ul>
+          </article>
+          <article class="gk-service">
+            <div class="gk-service-top">
+              <h3>Interprétation</h3>
+            </div>
+            <p>Je propose des services d’interprétation lors de démarches administratives, juridiques et
+              professionnelles, notamment&nbsp;:</p>
+            <ul>
+              <li>dans les bureaux de l’état civil,</li>
+              <li>auprès des autorités judiciaires&nbsp;: tribunaux, parquets, police et établissements pénitentiaires,</li>
+              <li>dans les administrations municipales et les institutions publiques,</li>
+              <li>lors d’actes notariés et dans les cabinets juridiques,</li>
+              <li>pendant les réunions professionnelles.</li>
+            </ul>
+            <p>Dans votre demande, précisez le lieu, la date, la durée prévue et l’objet de la rencontre.
+              L’interprétation est facturée par blocs de quatre heures.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gk-choose" aria-labelledby="gk-choose-title">
+    <div class="gk-wrap">
+      <div class="gk-section-head">
+        <span class="gk-eyebrow">Choisir le service adapté</span>
+        <h2 id="gk-choose-title">Le type de traduction dépend de sa destination</h2>
+        <p class="gk-lead">Si l’institution vous a communiqué ses exigences, transmettez-les avec le document lors de
+          votre demande de devis.</p>
+      </div>
+      <div class="gk-choose-grid">
+        <article class="gk-choose-card">
+          <h3>Pour une institution en Pologne</h3>
+          <p>Les démarches administratives peuvent nécessiter une traduction certifiée réalisée par une traductrice
+            assermentée de français en Pologne.</p>
+        </article>
+        <article class="gk-choose-card">
+          <h3>Pour une institution au Canada</h3>
+          <p>Une traduction préparée par une membre de l’OTTIAQ peut être exigée, en particulier pour les démarches
+            effectuées dans la province de Québec.</p>
+        </article>
+        <article class="gk-choose-card">
+          <h3>Pour une entreprise ou une publication</h3>
+          <p>Les contenus juridiques, administratifs, techniques, marketing et touristiques peuvent être traités sous
+            forme de traductions spécialisées.</p>
+        </article>
+        <article class="gk-choose-card">
+          <h3>Pour une rencontre ou une démarche</h3>
+          <p>Dans une administration, un tribunal, un cabinet, chez un notaire ou lors d’une réunion professionnelle,
+            le service adapté est l’interprétation.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="gk-services-cta" aria-labelledby="gk-services-cta-title">
+    <div class="gk-wrap">
+      <span class="gk-eyebrow">Devis</span>
+      <h2 id="gk-services-cta-title">Vous ne savez pas quel type de traduction choisir&nbsp;?</h2>
+      <p>Envoyez le document en indiquant l’institution à laquelle il est destiné, la langue de traduction et le délai
+        souhaité.</p>
+      <div class="gk-hero-actions">
+        <a class="gk-button" href="mailto:kos.traduction@gmail.com?subject=Demande%20de%20devis%20de%20traduction">Envoyer
+          le document</a>
+      </div>
+    </div>
+  </section>
+</main>

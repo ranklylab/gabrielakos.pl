@@ -219,27 +219,27 @@
 
 <header class="gk-block gk-header">
   <div class="gk-wrap gk-topbar">
-    <a class="gk-brand" href="/">
+    <a class="gk-brand" href="/fr">
       Gabriela Kos
-      <small>Tłumaczka przysięgła · Français</small>
+      <small>Traductrice assermentée · Français</small>
     </a>
 
-    <nav id="gk-site-nav" aria-label="Główna nawigacja">
+    <nav id="gk-site-nav" aria-label="Navigation principale">
       <ul>
-        <li><a href="/o-mnie">O mnie</a></li>
-        <li><a href="/uslugi">Usługi</a></li>
-        <li><a href="/wycena">Wycena</a></li>
-        <li><a href="/kontakt">Kontakt</a></li>
-        <li><a href="/#polityka">RODO</a></li>
-        <li><a class="gk-language-switch" href="/fr" hreflang="fr" lang="fr"
-            aria-label="Wersja francuska">FR</a></li>
+        <li><a href="/o-mnie/fr">À propos</a></li>
+        <li><a href="/uslugi/fr">Services</a></li>
+        <li><a href="/wycena/fr">Devis</a></li>
+        <li><a href="/kontakt/fr">Contact</a></li>
+        <li><a href="/fr/#polityka">RGPD</a></li>
+        <li><a class="gk-language-switch" href="/" hreflang="pl" lang="pl"
+            aria-label="Version polonaise">PL</a></li>
       </ul>
     </nav>
 
-    <a class="gk-header-cta" href="mailto:kos.traduction@gmail.com">Bezpłatna wycena</a>
+    <a class="gk-header-cta" href="mailto:kos.traduction@gmail.com">Devis gratuit</a>
 
     <button class="gk-menu-button" type="button" aria-controls="gk-site-nav" aria-expanded="false"
-      aria-label="Otwórz menu">
+      aria-label="Ouvrir le menu">
       <span></span>
     </button>
   </div>
@@ -273,13 +273,13 @@
     const closeMenu = () => {
       nav.classList.remove('gk-open');
       button.setAttribute('aria-expanded', 'false');
-      button.setAttribute('aria-label', 'Otwórz menu');
+      button.setAttribute('aria-label', 'Ouvrir le menu');
     };
 
     button.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('gk-open');
       button.setAttribute('aria-expanded', String(isOpen));
-      button.setAttribute('aria-label', isOpen ? 'Zamknij menu' : 'Otwórz menu');
+      button.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
     });
 
     nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
