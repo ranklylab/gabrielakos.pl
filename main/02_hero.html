@@ -128,12 +128,12 @@
     box-shadow: var(--gk-shadow);
   }
 
-  .gk-block .gk-photo.gk-horizontal {
-    aspect-ratio: 4/3;
-  }
-
   .gk-block .gk-photo.gk-vertical {
     aspect-ratio: 4/5;
+  }
+
+  .gk-block.gk-hero .gk-photo.gk-horizontal {
+    aspect-ratio: auto;
   }
 
   .gk-block .gk-photo::before {
@@ -174,9 +174,10 @@
       width: min(calc(100% - 40px), 760px);
     }
 
-    .gk-block .gk-photo.gk-horizontal {
+    .gk-block.gk-hero .gk-photo.gk-horizontal {
       aspect-ratio: 16/10;
     }
+
   }
 
   @media (max-width:620px) {
@@ -310,8 +311,8 @@
       </div>
     </div>
     <div class="gk-photo gk-horizontal">
-      <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-83.jpg"
-        alt="Gabriela Kos, tłumaczka przysięgła języka francuskiego" width="1200" height="900">
+      <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-85.jpg"
+        alt="Gabriela Kos, tłumaczka przysięgła języka francuskiego" width="1181" height="1772">
       <span aria-hidden="true" class="gk-maple-mark">🍁</span>
     </div>
   </div>

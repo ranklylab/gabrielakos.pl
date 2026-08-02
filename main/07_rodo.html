@@ -198,20 +198,49 @@
     background: var(--gk-paper-light);
   }
 
-  .gk-polityka .gk-privacy-head {
-    display: grid;
-    grid-template-columns: .75fr 1.25fr;
+  .gk-polityka .gk-privacy-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 50px;
-    align-items: start;
-    margin-bottom: 50px;
+    list-style: none;
+    cursor: pointer;
   }
 
-  .gk-polityka .gk-privacy-head h2 {
-    margin: 12px 0 0;
+  .gk-polityka .gk-privacy-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .gk-polityka .gk-privacy-summary h2 {
+    margin: 0;
     font-size: clamp(40px, 5vw, 58px);
   }
 
-  .gk-polityka .gk-privacy-head p {
+  .gk-polityka .gk-privacy-summary .gk-eyebrow {
+    display: block;
+    margin-bottom: 12px;
+    font-family: "Karla", system-ui, sans-serif;
+  }
+
+  .gk-polityka .gk-privacy-summary::after {
+    content: "+";
+    color: var(--gk-accent);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 58px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .gk-polityka .gk-privacy-disclosure[open]>.gk-privacy-summary::after {
+    content: "−";
+  }
+
+  .gk-polityka .gk-privacy-content {
+    margin-top: 50px;
+  }
+
+  .gk-polityka .gk-privacy-content>p {
+    margin-bottom: 50px;
     color: var(--gk-soft);
   }
 
@@ -243,11 +272,6 @@
   }
 
   @media(max-width:980px) {
-    .gk-polityka .gk-privacy-head {
-      grid-template-columns: 1fr;
-      gap: 46px;
-    }
-
     .gk-polityka .gk-privacy-grid {
       grid-template-columns: 1fr;
     }
@@ -269,17 +293,16 @@
 </style>
 <section class="gk-block gk-polityka" id="polityka">
   <div class="gk-wrap">
-    <div class="gk-privacy-head">
-      <div>
-        <span class="gk-eyebrow">Polityka prywatności</span>
-        <h2>RODO</h2>
-      </div>
-      <p>Administratorem danych osobowych jest firma Gabriela Kos z siedzibą w Krakowie, ul. Kluzeka 5/51, NIP
-        549-236-39-68, adres poczty elektronicznej: <a
-          href="mailto:kos.traduction@gmail.com">kos.traduction@gmail.com</a>.</p>
-    </div>
-    <div class="gk-privacy-grid">
-      <article class="gk-privacy-card">
+    <details class="gk-privacy-disclosure">
+      <summary class="gk-privacy-summary">
+        <h2><span class="gk-eyebrow">Polityka prywatności</span>RODO</h2>
+      </summary>
+      <div class="gk-privacy-content">
+        <p>Administratorem danych osobowych jest firma Gabriela Kos z siedzibą w Krakowie, ul. Kluzeka 5/51, NIP
+          549-236-39-68, adres poczty elektronicznej: <a
+            href="mailto:kos.traduction@gmail.com">kos.traduction@gmail.com</a>.</p>
+        <div class="gk-privacy-grid">
+          <article class="gk-privacy-card">
         <h3>Cele przetwarzania danych</h3>
         <ul>
           <li>wykonanie usługi tłumaczenia,</li>
@@ -289,8 +312,8 @@
           <li>doskonalenie zawodowe tłumacza i budowanie bazy wiedzy, na podstawie prawnie uzasadnionego interesu
             administratora.</li>
         </ul>
-      </article>
-      <article class="gk-privacy-card">
+          </article>
+          <article class="gk-privacy-card">
         <h3>Przechowywanie danych</h3>
         <p>Dane osobowe zawarte w tłumaczonych dokumentach oraz korespondencja mailowa przechowywane są przez rok od
           momentu odebrania tłumaczenia, w celu rozpatrzenia ewentualnych reklamacji.</p>
@@ -299,8 +322,8 @@
           usprawiedliwiony interes administratora.</p>
         <p>Dane potrzebne do wystawienia faktury, wynikające z przepisów podatkowych, przechowywane są przez okres 5
           lat.</p>
-      </article>
-      <article class="gk-privacy-card gk-wide">
+          </article>
+          <article class="gk-privacy-card gk-wide">
         <h3>Prawa klienta</h3>
         <ul>
           <li>żądanie od administratora dostępu do swoich danych osobowych, ich sprostowania, usunięcia lub ograniczenia
@@ -311,7 +334,92 @@
         </ul>
         <p>Kontakt z administratorem za pomocą poczty elektronicznej: <a
             href="mailto:kos.traduction@gmail.com">kos.traduction@gmail.com</a>.</p>
-      </article>
-    </div>
+          </article>
+        </div>
+      </div>
+    </details>
   </div>
 </section>
+
+<script>
+  (() => {
+    const script = document.currentScript;
+    const section = script?.previousElementSibling;
+    const details = section?.querySelector('.gk-privacy-disclosure');
+    const summary = details?.querySelector('.gk-privacy-summary');
+
+    if (!details || !summary || details.dataset.gkReady === 'true') return;
+    details.dataset.gkReady = 'true';
+
+    let animation;
+    let expansionFrame;
+    let isClosing = false;
+    let isExpanding = false;
+
+    const finishAnimation = isOpen => {
+      details.open = isOpen;
+      animation = null;
+      isClosing = false;
+      isExpanding = false;
+      details.style.height = '';
+      details.style.overflow = '';
+    };
+
+    const close = () => {
+      isClosing = true;
+      window.cancelAnimationFrame(expansionFrame);
+      expansionFrame = null;
+      const startHeight = `${details.offsetHeight}px`;
+      const endHeight = `${summary.offsetHeight}px`;
+
+      animation?.cancel();
+      animation = details.animate({ height: [startHeight, endHeight] }, {
+        duration: 200,
+        easing: 'ease'
+      });
+      animation.onfinish = () => finishAnimation(false);
+      animation.oncancel = () => { isClosing = false; };
+    };
+
+    const expand = () => {
+      isExpanding = true;
+      const startHeight = `${details.offsetHeight}px`;
+      const endHeight = `${details.scrollHeight}px`;
+
+      animation?.cancel();
+      animation = details.animate({ height: [startHeight, endHeight] }, {
+        duration: 200,
+        easing: 'ease'
+      });
+      animation.onfinish = () => finishAnimation(true);
+      animation.oncancel = () => { isExpanding = false; };
+    };
+
+    const open = () => {
+      isExpanding = true;
+      details.style.height = `${details.offsetHeight}px`;
+      details.open = true;
+      expansionFrame = window.requestAnimationFrame(() => {
+        expansionFrame = null;
+        expand();
+      });
+    };
+
+    summary.addEventListener('click', event => {
+      event.preventDefault();
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || typeof details.animate !== 'function') {
+        details.open = !details.open;
+        return;
+      }
+
+      details.style.overflow = 'hidden';
+
+      if (isClosing || !details.open) {
+        open();
+      } else if (isExpanding || details.open) {
+        close();
+      }
+    });
+  })();
+</script>

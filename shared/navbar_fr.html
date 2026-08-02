@@ -48,23 +48,15 @@
     gap: 26px;
   }
 
-  .gk-header .gk-brand {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: 25px;
-    line-height: 1;
-    letter-spacing: .02em;
-    white-space: nowrap;
+  .gk-header .gk-logo {
+    display: inline-flex;
+    align-items: center;
   }
 
-  .gk-header .gk-brand small {
+  .gk-header .gk-logo img {
     display: block;
-    margin-top: 5px;
-    color: var(--gk-soft);
-    font-family: "Karla", sans-serif;
-    font-size: 9px;
-    line-height: 1.2;
-    letter-spacing: .23em;
-    text-transform: uppercase;
+    width: auto;
+    height: 46px;
   }
 
   .gk-header nav ul {
@@ -229,17 +221,17 @@
       min-height: 70px;
     }
 
-    .gk-header .gk-brand {
-      font-size: 22px;
+    .gk-header .gk-logo img {
+      height: 44px;
     }
   }
 </style>
 
 <header class="gk-block gk-header">
   <div class="gk-wrap gk-topbar">
-    <a class="gk-brand" href="/fr">
-      Gabriela Kos
-      <small>Traductrice assermentée · Français</small>
+    <a class="gk-logo" href="/fr" aria-label="Gabriela Kos — accueil">
+      <img src="https://gabrielakos.pl/wp-content/uploads/2026/08/Logo-przezroczyste-scaled-e1785703812912.png"
+        alt="Gabriela Kos, traductrice assermentée de français" width="2560" height="580">
     </a>
 
     <nav id="gk-site-nav" aria-label="Navigation principale">
