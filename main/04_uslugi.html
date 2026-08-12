@@ -87,8 +87,8 @@
     justify-content: center;
     min-height: 46px;
     padding: 0 24px;
-    border: 1px solid var(--gk-ink);
-    background: var(--gk-ink);
+    border: 1px solid var(--gk-accent);
+    background: var(--gk-accent);
     color: var(--gk-paper-light);
     font-size: 12px;
     font-weight: 600;
@@ -98,12 +98,13 @@
   }
 
   .gk-block .gk-button:hover {
-    background: var(--gk-accent);
-    border-color: var(--gk-accent);
+    background: var(--gk-ink);
+    border-color: var(--gk-ink);
     color: var(--gk-paper-light);
   }
 
   .gk-block .gk-button.gk-secondary {
+    border-color: var(--gk-ink);
     background: transparent;
     color: var(--gk-ink);
   }
@@ -134,15 +135,6 @@
 
   .gk-block .gk-photo.gk-vertical {
     aspect-ratio: 4/5;
-  }
-
-  .gk-block .gk-photo::before {
-    content: "";
-    position: absolute;
-    inset: 26px;
-    border: 1px solid rgba(255, 255, 255, .55);
-    z-index: 1;
-    pointer-events: none;
   }
 
   .gk-block .gk-photo img {
