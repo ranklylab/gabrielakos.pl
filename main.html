@@ -1,0 +1,1052 @@
+<style>
+  .gk-block {
+    --gk-paper: #f4f0e8;
+    --gk-paper-light: #fbf8f2;
+    --gk-ink: #2d302f;
+    --gk-soft: #706f68;
+    --gk-line: #ddd5c8;
+    --gk-accent: #944939;
+    --gk-accent-dark: #78382d;
+    --gk-accent-soft: #eaded7;
+    --gk-white: #fffdf9;
+    --gk-shadow: 0 22px 60px rgba(55, 44, 34, .10);
+    width: 100%;
+    color: var(--gk-ink);
+    font-family: "Karla", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .gk-block,
+  .gk-block *,
+  .gk-block *::before,
+  .gk-block *::after {
+    box-sizing: border-box;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block h4,
+  .gk-block p,
+  .gk-block ul {
+    margin-top: 0;
+  }
+
+  .gk-block h1,
+  .gk-block h2,
+  .gk-block h3,
+  .gk-block h4 {
+    color: var(--gk-ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: .005em;
+  }
+
+  .gk-block a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .gk-block p+p {
+    margin-top: 16px;
+  }
+
+  .gk-block ul {
+    padding-left: 1.2rem;
+  }
+
+  .gk-block li+li {
+    margin-top: 7px;
+  }
+
+  .gk-block .gk-wrap {
+    width: min(1160px, calc(100% - 64px));
+    margin: 0 auto;
+  }
+
+  .gk-block .gk-eyebrow {
+    display: inline-block;
+    color: var(--gk-accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+  }
+
+  .gk-block .gk-lead {
+    color: var(--gk-soft);
+    font-size: 19px;
+  }
+
+  .gk-block .gk-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 24px;
+    border: 1px solid var(--gk-accent);
+    background: var(--gk-accent);
+    color: var(--gk-paper-light);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+
+  .gk-block .gk-button:hover {
+    background: var(--gk-ink);
+    border-color: var(--gk-ink);
+    color: var(--gk-paper-light);
+  }
+
+  .gk-block .gk-button.gk-secondary {
+    border-color: var(--gk-ink);
+    background: transparent;
+    color: var(--gk-ink);
+  }
+
+  .gk-block .gk-button.gk-secondary:hover {
+    background: var(--gk-ink);
+    color: var(--gk-paper-light);
+  }
+
+  .gk-block .gk-hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+
+  .gk-block .gk-photo {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gk-line);
+    background: linear-gradient(145deg, rgba(148, 73, 57, .08), rgba(255, 255, 255, .2)), radial-gradient(circle at 68% 24%, rgba(148, 73, 57, .20), transparent 28%), linear-gradient(155deg, #ddd2c3, #c8b9a6);
+    box-shadow: var(--gk-shadow);
+  }
+
+  .gk-block .gk-photo.gk-horizontal {
+    aspect-ratio: 4/3;
+  }
+
+  .gk-block .gk-photo.gk-vertical {
+    aspect-ratio: 4/5;
+  }
+
+  .gk-block .gk-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .gk-block .gk-photo-label {
+    position: absolute;
+    left: 28px;
+    bottom: 24px;
+    z-index: 2;
+    padding: 9px 13px;
+    background: rgba(244, 240, 232, .9);
+    color: var(--gk-soft);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 15px;
+    font-style: italic;
+  }
+
+  .gk-block[id] {
+    scroll-margin-top: 92px;
+  }
+
+  @media (max-width:980px) {
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 40px), 760px);
+    }
+
+    .gk-block .gk-photo.gk-horizontal {
+      aspect-ratio: 16/10;
+    }
+  }
+
+  @media (max-width:620px) {
+    .gk-block {
+      font-size: 16px;
+    }
+
+    .gk-block .gk-wrap {
+      width: min(calc(100% - 32px), 560px);
+    }
+
+    .gk-block .gk-button {
+      width: 100%;
+    }
+  }
+
+  .gk-block.gk-hero .gk-photo.gk-horizontal {
+    aspect-ratio: auto;
+  }
+
+  .gk-hero {
+    padding: 72px 0 90px;
+    background: var(--gk-paper);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-hero .gk-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.04fr) minmax(440px, .96fr);
+    gap: 72px;
+    align-items: center;
+  }
+
+  .gk-hero h1 {
+    max-width: 10.5ch;
+    margin: 22px 0 26px;
+    font-size: clamp(54px, 7vw, 92px);
+  }
+
+  .gk-hero h1 em {
+    color: var(--gk-accent);
+    font-style: italic;
+  }
+
+  .gk-hero .gk-hero-name {
+    margin-top: 28px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 28px;
+    color: var(--gk-accent);
+  }
+
+  .gk-hero .gk-credentials {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 42px;
+    padding-top: 26px;
+    border-top: 1px solid var(--gk-line);
+  }
+
+  .gk-hero .gk-credential strong {
+    display: block;
+    margin-bottom: 3px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .gk-hero .gk-credential span {
+    color: var(--gk-soft);
+    font-size: 13px;
+  }
+
+  @media(max-width:980px) {
+    .gk-block.gk-hero .gk-photo.gk-horizontal {
+      aspect-ratio: 16/10;
+    }
+
+    .gk-hero .gk-hero-grid {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+
+    .gk-hero h1 {
+      max-width: 11ch;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-hero {
+      padding: 52px 0 70px;
+    }
+
+    .gk-hero h1 {
+      font-size: clamp(46px, 15vw, 67px);
+    }
+
+    .gk-hero .gk-hero-grid {
+      gap: 42px;
+    }
+
+    .gk-hero .gk-credentials {
+      grid-template-columns: 1fr;
+    }
+  }
+  .gk-o-mnie {
+    padding: 104px 0;
+    background: var(--gk-paper-light);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-o-mnie .gk-about-grid {
+    display: grid;
+    grid-template-columns: minmax(300px, .8fr) minmax(0, 1.2fr);
+    gap: 76px;
+    align-items: start;
+  }
+
+  .gk-o-mnie .gk-about-copy h2 {
+    margin: 12px 0 24px;
+    font-size: clamp(38px, 4.8vw, 56px);
+  }
+
+  .gk-o-mnie .gk-about-copy p {
+    color: var(--gk-soft);
+  }
+
+  .gk-o-mnie .gk-about-copy p:first-of-type {
+    color: var(--gk-ink);
+    font-size: 19px;
+  }
+
+  .gk-o-mnie .gk-membership {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .gk-o-mnie .gk-membership span {
+    padding: 7px 13px;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-paper);
+    color: var(--gk-soft);
+    font-size: 12px;
+    letter-spacing: .05em;
+  }
+
+  .gk-o-mnie .gk-membership-logos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .gk-o-mnie .gk-membership-logos img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: calc(50% - 10px);
+    max-height: 112px;
+  }
+
+  @media(max-width:980px) {
+    .gk-o-mnie .gk-about-grid {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+
+    .gk-o-mnie .gk-photo {
+      max-width: 480px;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-o-mnie {
+      padding: 78px 0;
+    }
+
+    .gk-o-mnie .gk-about-grid {
+      gap: 38px;
+    }
+  }
+  .gk-uslugi {
+    padding: 104px 0;
+    background: var(--gk-paper);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-uslugi .gk-services-layout {
+    display: grid;
+    grid-template-columns: minmax(300px, .8fr) minmax(0, 1.2fr);
+    gap: 76px;
+    align-items: start;
+  }
+
+  .gk-uslugi .gk-services-photo {
+    position: sticky;
+    top: 110px;
+  }
+
+  .gk-uslugi .gk-section-head {
+    margin-bottom: 46px;
+  }
+
+  .gk-uslugi .gk-section-head h2 {
+    max-width: 18ch;
+    margin: 12px 0 0;
+    font-size: clamp(39px, 5vw, 58px);
+  }
+
+  .gk-uslugi .gk-section-head .gk-lead {
+    max-width: 60ch;
+    margin-top: 16px;
+  }
+
+  .gk-uslugi .gk-service-list {
+    border-top: 1px solid var(--gk-line);
+  }
+
+  .gk-uslugi .gk-service {
+    padding: 36px 0 38px;
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-uslugi .gk-service-top {
+    margin-bottom: 18px;
+  }
+
+  .gk-uslugi .gk-service h3 {
+    font-size: clamp(28px, 3.4vw, 40px);
+  }
+
+  .gk-uslugi .gk-service h4 {
+    margin: 26px 0 10px;
+    font-family: "Karla", sans-serif;
+    color: var(--gk-accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .gk-uslugi .gk-service p,
+  .gk-uslugi .gk-service li {
+    color: var(--gk-soft);
+  }
+
+  .gk-uslugi .gk-service-note {
+    margin-top: 20px;
+    padding: 18px 20px;
+    border-left: 2px solid var(--gk-accent);
+    background: var(--gk-accent-soft);
+    color: var(--gk-ink) !important;
+  }
+
+  @media(max-width:980px) {
+    .gk-uslugi .gk-section-head h2 {
+      max-width: 15ch;
+    }
+
+    .gk-uslugi .gk-services-layout {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+
+    .gk-uslugi .gk-services-photo {
+      position: static;
+      max-width: 480px;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-uslugi {
+      padding: 78px 0;
+    }
+
+    .gk-uslugi .gk-services-layout {
+      gap: 38px;
+    }
+
+  }
+  .gk-wycena {
+    padding: 104px 0;
+    background: var(--gk-paper-light);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-wycena .gk-pricing-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(380px, .95fr);
+    gap: 72px;
+    align-items: center;
+  }
+
+  .gk-wycena .gk-pricing-copy h2 {
+    margin: 12px 0 22px;
+    font-size: clamp(40px, 5vw, 60px);
+  }
+
+  .gk-wycena .gk-pricing-copy p {
+    color: var(--gk-soft);
+  }
+
+  .gk-wycena .gk-rates {
+    display: grid;
+    gap: 1px;
+    margin: 30px 0;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-line);
+  }
+
+  .gk-wycena .gk-rate {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    padding: 18px 20px;
+    background: var(--gk-paper);
+    align-items: baseline;
+  }
+
+  .gk-wycena .gk-rate strong {
+    min-width: 110px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .gk-wycena .gk-rate span {
+    color: var(--gk-soft);
+    font-size: 14px;
+  }
+
+  .gk-wycena .gk-legal-note {
+    margin-top: 18px;
+    font-size: 13px;
+  }
+
+  @media(max-width:980px) {
+    .gk-wycena .gk-pricing-grid {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-wycena {
+      padding: 78px 0;
+    }
+
+    .gk-wycena .gk-pricing-grid {
+      gap: 38px;
+    }
+
+    .gk-wycena .gk-rate {
+      grid-template-columns: 1fr;
+      gap: 3px;
+    }
+  }
+  .gk-kontakt {
+    padding: 104px 0;
+    background: var(--gk-paper);
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-kontakt .gk-contact-grid {
+    display: grid;
+    grid-template-columns: .86fr 1.14fr;
+    gap: 74px;
+    align-items: start;
+  }
+
+  .gk-kontakt .gk-contact-copy h2 {
+    margin: 12px 0 22px;
+    font-size: clamp(40px, 5vw, 58px);
+  }
+
+  .gk-kontakt .gk-contact-list {
+    margin-top: 34px;
+  }
+
+  .gk-kontakt .gk-contact-item {
+    padding: 17px 0;
+    border-bottom: 1px solid var(--gk-line);
+  }
+
+  .gk-kontakt .gk-contact-item:first-child {
+    border-top: 1px solid var(--gk-line);
+  }
+
+  .gk-kontakt .gk-contact-item small {
+    display: block;
+    color: var(--gk-accent);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .gk-kontakt .gk-contact-item a:hover {
+    color: var(--gk-accent);
+  }
+
+  .gk-kontakt .gk-contact-card {
+    padding: 36px;
+    background: var(--gk-paper-light);
+    border: 1px solid var(--gk-line);
+    box-shadow: var(--gk-shadow);
+  }
+
+  .gk-kontakt .gk-contact-card h3 {
+    margin-bottom: 13px;
+    font-size: 34px;
+  }
+
+  .gk-kontakt .gk-contact-card p {
+    color: var(--gk-soft);
+  }
+
+  .gk-kontakt .gk-contact-card .gk-button {
+    margin-top: 28px;
+  }
+
+  @media(max-width:980px) {
+    .gk-kontakt .gk-contact-grid {
+      grid-template-columns: 1fr;
+      gap: 46px;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-kontakt {
+      padding: 78px 0;
+    }
+
+    .gk-kontakt .gk-contact-grid {
+      gap: 38px;
+    }
+
+    .gk-kontakt .gk-contact-card {
+      padding: 24px;
+    }
+  }
+  .gk-polityka {
+    padding: 104px 0;
+    background: var(--gk-paper-light);
+  }
+
+  .gk-polityka .gk-privacy-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .gk-polityka .gk-privacy-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .gk-polityka .gk-privacy-summary h2 {
+    margin: 0;
+    font-size: clamp(40px, 5vw, 58px);
+  }
+
+  .gk-polityka .gk-privacy-summary .gk-eyebrow {
+    display: block;
+    margin-bottom: 12px;
+    font-family: "Karla", system-ui, sans-serif;
+  }
+
+  .gk-polityka .gk-privacy-summary::after {
+    content: "+";
+    color: var(--gk-accent);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 58px;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .gk-polityka .gk-privacy-disclosure[open]>.gk-privacy-summary::after {
+    content: "−";
+  }
+
+  .gk-polityka .gk-privacy-content {
+    margin-top: 50px;
+  }
+
+  .gk-polityka .gk-privacy-content>p {
+    margin-bottom: 50px;
+    color: var(--gk-soft);
+  }
+
+  .gk-polityka .gk-privacy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .gk-polityka .gk-privacy-card {
+    padding: 30px;
+    border: 1px solid var(--gk-line);
+    background: var(--gk-paper);
+  }
+
+  .gk-polityka .gk-privacy-card h3 {
+    margin-bottom: 14px;
+    font-size: 28px;
+  }
+
+  .gk-polityka .gk-privacy-card p,
+  .gk-polityka .gk-privacy-card li {
+    color: var(--gk-soft);
+    font-size: 15px;
+  }
+
+  .gk-polityka .gk-privacy-card.gk-wide {
+    grid-column: 1/-1;
+  }
+
+  @media(max-width:980px) {
+    .gk-polityka .gk-privacy-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .gk-polityka .gk-privacy-card.gk-wide {
+      grid-column: auto;
+    }
+  }
+
+  @media(max-width:620px) {
+    .gk-polityka {
+      padding: 78px 0;
+    }
+
+    .gk-polityka .gk-privacy-card {
+      padding: 24px;
+    }
+  }
+</style>
+<main class="gk-block gk-main">
+<section class="gk-block gk-hero" id="start">
+  <div class="gk-wrap gk-hero-grid">
+    <div>
+      <span class="gk-eyebrow">Uprawnienia w Polsce i Kanadzie</span>
+      <h1>Tłumaczka przysięgła języka <em>francuskiego</em></h1>
+      <div class="gk-hero-name">Gabriela Kos</div>
+      <p class="gk-lead">Tłumaczenia poświadczone, specjalistyczne i ustne z języka polskiego na francuski oraz z
+        francuskiego na polski.</p>
+      <div class="gk-hero-actions">
+        <a class="gk-button" href="mailto:kos.traduction@gmail.com">Poproś o wycenę</a>
+        <a class="gk-button gk-secondary" href="#uslugi">Zobacz usługi</a>
+      </div>
+      <div class="gk-credentials">
+        <div class="gk-credential"><strong>TP/96/21</strong><span>Tłumaczka przysięgła w Polsce</span></div>
+        <div class="gk-credential"><strong>OTTIAQ 35299</strong><span>Tłumaczka certyfikowana w Kanadzie</span></div>
+      </div>
+    </div>
+    <div class="gk-photo gk-horizontal">
+      <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-85.jpg"
+        alt="Gabriela Kos, tłumaczka przysięgła języka francuskiego" width="1181" height="1772">
+    </div>
+  </div>
+</section>
+
+<section class="gk-block gk-o-mnie" id="o-mnie">
+  <div class="gk-wrap gk-about-grid">
+    <div class="gk-photo gk-vertical">
+      <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-44.jpg"
+        alt="Gabriela Kos, tłumaczka przysięgła języka francuskiego" width="1200" height="900">
+      <span aria-hidden="true" class="gk-maple-mark">🍁</span>
+    </div>
+    <div class="gk-about-copy">
+      <span class="gk-eyebrow">O mnie</span>
+      <h2>Doświadczenie językowe po obu stronach Atlantyku</h2>
+      <p>Jestem tłumaczką przysięgłą języka francuskiego w Polsce (TP/96/21) oraz w Kanadzie (OTTIAQ N°: 35299).</p>
+      <p>Ukończyłam studia magisterskie na kierunku filologia romańska, specjalizacja przekładoznawcza, na Uniwersytecie
+        Jagiellońskim w Krakowie.</p>
+      <p>Jestem również absolwentką Podyplomowych Studiów dla Tłumaczy Ustnych na Katedrze Przekładoznawstwa
+        Uniwersytetu Jagiellońskiego oraz Interdyscyplinarnego Podyplomowego Studium Kształcenia Tłumaczy (IPSKT) na
+        Uniwersytecie Warszawskim.</p>
+      <p>Przez wiele lat mieszkałam w krajach frankofońskich: w Szwajcarii, Belgii i Kanadzie (Québec).</p>
+      <p>Stale dokształcam się i poszerzam swoje kompetencje, uczestnicząc w kursach organizowanych m.in. przez TEPIS,
+        OTTIAQ oraz Francusko-Polską Izbę Gospodarczą.</p>
+      <p>Wykonuję tłumaczenia poświadczone, tzw. „przysięgłe”, z polskiego na francuski oraz z francuskiego na polski.
+        Ponadto oferuję tłumaczenia zwykłe, „nieprzysięgłe”, z angielskiego na francuski. Specjalizuję się w
+        tłumaczeniach z dziedziny prawa: tłumaczę wyroki sądowe, akty notarialne, dokumenty USC, umowy i dokumenty
+        imigracyjne. Wykonuję również tłumaczenia ustne.</p>
+      <p>Jestem członkinią TEPIS oraz OTTIAQ.</p>
+      <div aria-label="Członkostwa i kwalifikacje" class="gk-membership">
+        <span>TP/96/21</span>
+        <span>OTTIAQ N° 35299</span>
+        <span>TEPIS</span>
+        <span>Uniwersytet Jagielloński</span>
+        <span>Uniwersytet Warszawski</span>
+      </div>
+      <div aria-label="Organizacje zawodowe" class="gk-membership-logos">
+        <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/tepis_badge_2026.png"
+          alt="Odznaka członkowska TEPIS 2026" width="300" height="300" loading="lazy">
+        <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/ott-1818_signature-courriel_rigueur_en_vb.png"
+          alt="Logo OTTIAQ — Ordre des traducteurs, terminologues et interprètes agréés du Québec" width="600"
+          height="94" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gk-block gk-uslugi" id="uslugi">
+  <div class="gk-wrap">
+    <div class="gk-section-head">
+      <span class="gk-eyebrow">Usługi</span>
+      <h2>Tłumaczenia z dbałością o każdy detal</h2>
+      <p class="gk-lead">Od aktów stanu cywilnego i dokumentów prawnych po materiały biznesowe, dokumentację techniczną
+        oraz tłumaczenia ustne.</p>
+    </div>
+    <div class="gk-services-layout">
+      <div class="gk-services-photo">
+        <div class="gk-photo gk-vertical">
+          <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-97.jpg"
+            alt="Gabriela Kos, tłumaczka przysięgła języka francuskiego" width="1200" height="900">
+          <span aria-hidden="true" class="gk-maple-mark">🍁</span>
+        </div>
+      </div>
+      <div class="gk-service-list">
+        <article class="gk-service">
+          <div class="gk-service-top">
+            <h3>Tłumaczenia poświadczone, tzw. „przysięgłe”</h3>
+          </div>
+          <p><strong>Języki:</strong> polski, francuski.</p>
+          <h4>Przykładowe dokumenty</h4>
+          <ul>
+            <li>odpisy aktów stanu cywilnego: akt urodzenia, akt małżeństwa, akt zgonu,</li>
+            <li>akty notarialne: pełnomocnictwo, umowa sprzedaży, testament,</li>
+            <li>świadectwa, dyplomy i uprawnienia,</li>
+            <li>dokumentacja bankowa: umowy kredytowe, wyciągi z rachunków,</li>
+            <li>dokumentacja finansowa: sprawozdania, bilanse, deklaracje podatkowe,</li>
+            <li>dokumentacja medyczna: karty leczenia szpitalnego, wyniki badań,</li>
+            <li>dokumentacja samochodowa: dowody rejestracyjne, prawa jazdy, karty pojazdu,</li>
+            <li>pełnomocnictwa i polisy ubezpieczeniowe,</li>
+            <li>wyciągi KRS, CEIDG i K-bis, umowy spółek oraz sprawozdania,</li>
+            <li>zaświadczenia o niekaralności.</li>
+          </ul>
+          <p class="gk-service-note">Oferuję również tłumaczenia poświadczone podpisem elektronicznym.</p>
+        </article>
+        <article class="gk-service">
+          <div class="gk-service-top">
+            <h3>Tłumaczenia specjalistyczne</h3>
+          </div>
+          <p><strong>Języki:</strong> polski, francuski, angielski.</p>
+          <p>Tłumaczenia z zakresu prawa i administracji, a także m.in.:</p>
+          <ul>
+            <li>dokumenty unijne,</li>
+            <li>tłumaczenia techniczne: deklaracje zgodności, karty techniczne,</li>
+            <li>tłumaczenia dla biznesu: strony internetowe, katalogi i materiały marketingowe,</li>
+            <li>tłumaczenia dla branży turystycznej.</li>
+          </ul>
+        </article>
+        <article class="gk-service">
+          <div class="gk-service-top">
+            <h3>Tłumaczenia uwierzytelnione w Kanadzie</h3>
+          </div>
+          <p><strong>Języki:</strong> polski, francuski.</p>
+          <p>Jako członkini OTTIAQ wykonuję tłumaczenia uznawane przez instytucje państwowe w Kanadzie, np. IRCC, a w
+            szczególności w prowincji Québec przez SAAQ, MIFI, sądy i szpitale.</p>
+          <p>Niektóre kanadyjskie instytucje wymagają tłumaczeń certyfikowanych przez tłumaczy z kanadyjskimi
+            uprawnieniami. Dotyczy to w szczególności prawa jazdy, a czasami także dyplomów lub dokumentów potrzebnych w
+            procesie imigracyjnym.</p>
+          <p>Przed wyjazdem do Kanady możesz przetłumaczyć wszystkie niezbędne dokumenty i uniknąć dodatkowych
+            formalności na miejscu. Oferuję tłumaczenie wymaganych dokumentów na język francuski. Wycena takich
+            tłumaczeń jest indywidualna.</p>
+        </article>
+        <article class="gk-service">
+          <div class="gk-service-top">
+            <h3>Tłumaczenia ustne</h3>
+          </div>
+          <p>Wykonuję tłumaczenia ustne:</p>
+          <ul>
+            <li>w Urzędach Stanu Cywilnego,</li>
+            <li>dla organów wymiaru sprawiedliwości: w sądach, prokuraturze, na Policji i w zakładach karnych,</li>
+            <li>w urzędach miejskich i instytucjach publicznych,</li>
+            <li>podczas czynności notarialnych i w kancelariach prawnych,</li>
+            <li>podczas spotkań biznesowych.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gk-block gk-wycena" id="wycena">
+  <div class="gk-wrap gk-pricing-grid">
+    <div class="gk-pricing-copy">
+      <span class="gk-eyebrow">Wycena</span>
+      <h2>Bezpłatnie i bez zobowiązań</h2>
+      <p>Wycena tłumaczenia wykonywana jest na podstawie przesłanych dokumentów. Zależy m.in. od liczby znaków, stopnia
+        trudności, formy graficznej dokumentu, takiej jak pismo odręczne, tabele lub wykresy, oraz terminu wykonania
+        zlecenia.</p>
+      <div class="gk-rates">
+        <div class="gk-rate"><strong>1125 znaków</strong><span>1 strona rozliczeniowa tłumaczenia poświadczonego, ze
+            spacjami</span></div>
+        <div class="gk-rate"><strong>1600 znaków</strong><span>1 strona rozliczeniowa tłumaczenia zwykłego, ze
+            spacjami</span></div>
+        <div class="gk-rate"><strong>4 godziny</strong><span>blok rozliczeniowy tłumaczenia ustnego</span></div>
+      </div>
+      <p>Tłumaczenia sporządzane są w jednym egzemplarzu. Każda rozpoczęta strona liczona jest jako cała.</p>
+      <p class="gk-legal-note">Informacja nie stanowi oferty handlowej w rozumieniu art. 66 Kodeksu cywilnego.</p>
+      <div class="gk-hero-actions">
+        <a class="gk-button" href="mailto:kos.traduction@gmail.com">Wyślij dokumenty do wyceny</a>
+      </div>
+    </div>
+    <div class="gk-photo gk-horizontal">
+      <img src="https://gabrielakos.pl/wp-content/uploads/2026/07/gabrysia-95.jpg"
+        alt="Gabriela Kos, tłumaczka przysięgła języka francuskiego" width="1200" height="900">
+      <span aria-hidden="true" class="gk-maple-mark">🍁</span>
+    </div>
+  </div>
+</section>
+
+<section class="gk-block gk-kontakt" id="kontakt">
+  <div class="gk-wrap gk-contact-grid">
+    <div class="gk-contact-copy">
+      <span class="gk-eyebrow">Kontakt</span>
+      <h2>Porozmawiajmy o Twoim tłumaczeniu</h2>
+      <p class="gk-lead">Spotkanie osobiste możliwe jest po wcześniejszym kontakcie telefonicznym lub mailowym.</p>
+      <div class="gk-contact-list">
+        <div class="gk-contact-item"><small>Gabriela Kos</small><span>Tłumaczka przysięgła języka francuskiego</span>
+        </div>
+        <div class="gk-contact-item"><small>Adres</small><span>ul. Szopkarzy 6/32<br />31-228 Kraków</span></div>
+        <div class="gk-contact-item"><small>Telefon</small><a href="tel:+48507824721">507 824 721</a></div>
+        <div class="gk-contact-item"><small>E-mail</small><a
+            href="mailto:kos.traduction@gmail.com">kos.traduction@gmail.com</a></div>
+        <div class="gk-contact-item"><small>NIP</small><span>5492363968</span></div>
+      </div>
+    </div>
+    <aside class="gk-contact-card">
+      <span class="gk-eyebrow">Szybki kontakt</span>
+      <h3>Prześlij skan lub zdjęcie dokumentu</h3>
+      <p>W wiadomości podaj język tłumaczenia, oczekiwany termin i informację, dla jakiej instytucji dokument jest
+        przygotowywany. Otrzymasz indywidualną, niezobowiązującą wycenę.</p>
+      <a class="gk-button" href="mailto:kos.traduction@gmail.com?subject=Prośba%20o%20wycenę%20tłumaczenia">Napisz
+        e-mail</a>
+    </aside>
+  </div>
+</section>
+
+<section class="gk-block gk-polityka" id="polityka">
+  <div class="gk-wrap">
+    <details class="gk-privacy-disclosure">
+      <summary class="gk-privacy-summary">
+        <h2><span class="gk-eyebrow">Polityka prywatności</span>RODO</h2>
+      </summary>
+      <div class="gk-privacy-content">
+        <p>Administratorem danych osobowych jest firma Gabriela Kos z siedzibą w Krakowie, ul. Kluzeka 5/51, NIP
+          549-236-39-68, adres poczty elektronicznej: <a
+            href="mailto:kos.traduction@gmail.com">kos.traduction@gmail.com</a>.</p>
+        <div class="gk-privacy-grid">
+          <article class="gk-privacy-card">
+        <h3>Cele przetwarzania danych</h3>
+        <ul>
+          <li>wykonanie usługi tłumaczenia,</li>
+          <li>w przypadku tłumaczenia poświadczonego dokonanie wpisu do repertorium tłumacza przysięgłego, zgodnie z
+            art. 17 ust. 2 ustawy o zawodzie tłumacza przysięgłego,</li>
+          <li>prowadzenie dokumentacji księgowej,</li>
+          <li>doskonalenie zawodowe tłumacza i budowanie bazy wiedzy, na podstawie prawnie uzasadnionego interesu
+            administratora.</li>
+        </ul>
+          </article>
+          <article class="gk-privacy-card">
+        <h3>Przechowywanie danych</h3>
+        <p>Dane osobowe zawarte w tłumaczonych dokumentach oraz korespondencja mailowa przechowywane są przez rok od
+          momentu odebrania tłumaczenia, w celu rozpatrzenia ewentualnych reklamacji.</p>
+        <p>Kopie tłumaczonych dokumentów w języku docelowym i źródłowym mogą być przechowywane na czas nieokreślony w
+          celu doskonalenia zawodowego tłumacza oraz budowania bazy wiedzy. Podstawą prawną jest prawnie
+          usprawiedliwiony interes administratora.</p>
+        <p>Dane potrzebne do wystawienia faktury, wynikające z przepisów podatkowych, przechowywane są przez okres 5
+          lat.</p>
+          </article>
+          <article class="gk-privacy-card gk-wide">
+        <h3>Prawa klienta</h3>
+        <ul>
+          <li>żądanie od administratora dostępu do swoich danych osobowych, ich sprostowania, usunięcia lub ograniczenia
+            przetwarzania,</li>
+          <li>wniesienie sprzeciwu wobec takiego przetwarzania,</li>
+          <li>cofnięcie zgody na przetwarzanie danych osobowych,</li>
+          <li>wniesienie skargi do organu nadzorczego.</li>
+        </ul>
+        <p>Kontakt z administratorem za pomocą poczty elektronicznej: <a
+            href="mailto:kos.traduction@gmail.com">kos.traduction@gmail.com</a>.</p>
+          </article>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<script>
+  (() => {
+    const script = document.currentScript;
+    const section = script?.previousElementSibling;
+    const details = section?.querySelector('.gk-privacy-disclosure');
+    const summary = details?.querySelector('.gk-privacy-summary');
+
+    if (!details || !summary || details.dataset.gkReady === 'true') return;
+    details.dataset.gkReady = 'true';
+
+    let animation;
+    let expansionFrame;
+    let isClosing = false;
+    let isExpanding = false;
+
+    const finishAnimation = isOpen => {
+      details.open = isOpen;
+      animation = null;
+      isClosing = false;
+      isExpanding = false;
+      details.style.height = '';
+      details.style.overflow = '';
+    };
+
+    const close = () => {
+      isClosing = true;
+      window.cancelAnimationFrame(expansionFrame);
+      expansionFrame = null;
+      const startHeight = `${details.offsetHeight}px`;
+      const endHeight = `${summary.offsetHeight}px`;
+
+      animation?.cancel();
+      animation = details.animate({ height: [startHeight, endHeight] }, {
+        duration: 200,
+        easing: 'ease'
+      });
+      animation.onfinish = () => finishAnimation(false);
+      animation.oncancel = () => { isClosing = false; };
+    };
+
+    const expand = () => {
+      isExpanding = true;
+      const startHeight = `${details.offsetHeight}px`;
+      const endHeight = `${details.scrollHeight}px`;
+
+      animation?.cancel();
+      animation = details.animate({ height: [startHeight, endHeight] }, {
+        duration: 200,
+        easing: 'ease'
+      });
+      animation.onfinish = () => finishAnimation(true);
+      animation.oncancel = () => { isExpanding = false; };
+    };
+
+    const open = () => {
+      isExpanding = true;
+      details.style.height = `${details.offsetHeight}px`;
+      details.open = true;
+      expansionFrame = window.requestAnimationFrame(() => {
+        expansionFrame = null;
+        expand();
+      });
+    };
+
+    summary.addEventListener('click', event => {
+      event.preventDefault();
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || typeof details.animate !== 'function') {
+        details.open = !details.open;
+        return;
+      }
+
+      details.style.overflow = 'hidden';
+
+      if (isClosing || !details.open) {
+        open();
+      } else if (isExpanding || details.open) {
+        close();
+      }
+    });
+  })();
+</script>
+</main>
