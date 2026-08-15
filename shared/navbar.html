@@ -241,7 +241,7 @@
         <li><a href="/wycena">Wycena</a></li>
         <li><a href="/kontakt">Kontakt</a></li>
         <li><a href="/#polityka">RODO</a></li>
-        <li><a class="gk-language-switch" href="/fr" hreflang="fr" lang="fr"
+        <li><a class="gk-language-switch" href="/home-fr" hreflang="fr" lang="fr"
             aria-label="Wersja francuska"><span aria-hidden="true">🇫🇷</span></a></li>
       </ul>
     </nav>
@@ -269,13 +269,13 @@
 
     if (languageLink) {
       const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
-      const alternatePath = currentPath === '/fr'
+      const alternatePath = currentPath === '/home-fr'
         ? '/'
-        : currentPath.endsWith('/fr')
+        : currentPath.endsWith('-fr')
           ? currentPath.slice(0, -3) || '/'
           : currentPath === '/'
-            ? '/fr'
-            : `${currentPath}/fr`;
+            ? '/home-fr'
+            : `${currentPath}-fr`;
 
       languageLink.href = alternatePath;
     }

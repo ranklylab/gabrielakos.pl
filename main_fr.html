@@ -186,7 +186,11 @@
   }
 
   .gk-block.gk-hero .gk-photo.gk-horizontal {
-    aspect-ratio: auto;
+    aspect-ratio: 3/4;
+  }
+
+  .gk-block.gk-hero .gk-photo.gk-horizontal img {
+    object-position: center bottom;
   }
 
   .gk-hero {
@@ -245,6 +249,10 @@
   @media(max-width:980px) {
     .gk-block.gk-hero .gk-photo.gk-horizontal {
       aspect-ratio: 16/10;
+    }
+
+    .gk-block.gk-hero .gk-photo.gk-horizontal img {
+      object-position: center;
     }
 
     .gk-hero .gk-hero-grid {
